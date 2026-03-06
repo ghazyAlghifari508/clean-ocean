@@ -46,9 +46,8 @@ export default function ContactForm() {
   };
 
   const inputClasses = (field) =>
-    `w-full px-4 py-3 rounded-xl bg-luna-dark/50 border ${
-      errors[field] ? "border-red-400/50" : "border-luna-deep/30"
-    } text-white placeholder-white/30 focus:outline-none focus:border-luna-medium/50 focus:bg-luna-dark/70 transition-all duration-300 backdrop-blur-sm`;
+    `w-full px-4 py-3 rounded-xl bg-ocean-deep/50 border ${errors[field] ? "border-red-400/50" : "border-ocean-deep/30"
+    } text-white placeholder-white/30 focus:outline-none focus:border-ocean-surface/50 focus:bg-ocean-deep/70 transition-all duration-300 backdrop-blur-sm`;
 
   if (isSubmitted) {
     return (
@@ -57,8 +56,8 @@ export default function ContactForm() {
         animate={{ opacity: 1, scale: 1 }}
         className="glass-card p-12 text-center"
       >
-        <div className="w-16 h-16 rounded-full bg-luna-medium/20 flex items-center justify-center mx-auto mb-6">
-          <CheckCircle className="w-8 h-8 text-luna-light" />
+        <div className="w-16 h-16 rounded-full bg-ocean-surface/20 flex items-center justify-center mx-auto mb-6">
+          <CheckCircle className="w-8 h-8 text-ocean-sky" />
         </div>
         <h3 className="font-display text-2xl font-bold text-white mb-3">Pesan Terkirim!</h3>
         <p className="text-white/50">

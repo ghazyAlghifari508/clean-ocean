@@ -38,7 +38,7 @@ function AppContent() {
   const hideFooter = location.pathname === "/simulation";
 
   return (
-    <div className="min-h-screen bg-luna-midnight text-white">
+    <div className="min-h-screen bg-ocean-abyss text-white">
       <Navbar />
       <main>
         <AnimatedRoutes />

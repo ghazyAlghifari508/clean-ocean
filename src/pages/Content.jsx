@@ -21,7 +21,7 @@ export default function Content() {
       transition={{ duration: 0.4 }}
     >
       <ContentHeader />
-      <section className="section-padding bg-luna-midnight">
+      <section className="section-padding bg-ocean-abyss">
         <div className="container-custom">
           <CategoryFilter
             categories={categories}

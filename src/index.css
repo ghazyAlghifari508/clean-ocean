@@ -15,7 +15,7 @@
 
   body {
     font-family: "Inter", system-ui, sans-serif;
-    background-color: #011C40;
+    background-color: #063B52;
     color: #ffffff;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
@@ -23,7 +23,7 @@
   }
 
   ::selection {
-    background-color: rgba(84, 172, 191, 0.4);
+    background-color: rgba(77, 184, 219, 0.4);
     color: #ffffff;
   }
 
@@ -33,34 +33,35 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: #011C40;
+    background: #063B52;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #26658C;
+    background: #1A8FB5;
     border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #54ACBF;
+    background: #4DB8DB;
   }
 }
 
 @layer components {
+
   /* Glassmorphism Card */
   .glass-card {
-    background: rgba(2, 56, 89, 0.4);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(167, 235, 242, 0.15);
-    border-radius: 16px;
+    background: rgba(6, 59, 82, 0.5);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(135, 206, 235, 0.15);
+    border-radius: 20px;
   }
 
   .glass-card-hover:hover {
-    background: rgba(2, 56, 89, 0.6);
-    border-color: rgba(167, 235, 242, 0.3);
+    background: rgba(12, 95, 127, 0.6);
+    border-color: rgba(135, 206, 235, 0.3);
     transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(1, 28, 64, 0.4);
+    box-shadow: 0 20px 40px rgba(6, 59, 82, 0.4);
   }
 
   /* Section Wave Divider */
@@ -80,27 +81,19 @@
 
   /* Gradient Overlay */
   .gradient-overlay {
-    background: linear-gradient(
-      180deg,
-      rgba(1, 28, 64, 0.7) 0%,
-      rgba(2, 56, 89, 0.5) 50%,
-      rgba(1, 28, 64, 0.9) 100%
-    );
+    background: linear-gradient(180deg,
+        rgba(6, 59, 82, 0.7) 0%,
+        rgba(12, 95, 127, 0.5) 50%,
+        rgba(6, 59, 82, 0.9) 100%);
   }
 
   /* Button Styles */
   .btn-primary {
-    @apply px-8 py-3 bg-luna-medium text-white font-semibold rounded-lg
-           transition-all duration-300 ease-out
-           hover:bg-luna-deep hover:shadow-lg hover:shadow-luna-medium/20
-           hover:scale-[1.02] active:scale-[0.98];
+    @apply px-8 py-3 bg-ocean-mid text-white font-semibold rounded-xl transition-all duration-300 ease-out hover:bg-ocean-deep hover:shadow-lg hover:shadow-ocean-mid/30 hover:scale-[1.02] active:scale-[0.98];
   }
 
   .btn-secondary {
-    @apply px-8 py-3 border-2 border-luna-medium text-luna-light font-semibold rounded-lg
-           transition-all duration-300 ease-out bg-transparent
-           hover:bg-luna-medium/10 hover:border-luna-light hover:scale-[1.02]
-           active:scale-[0.98];
+    @apply px-8 py-3 border-2 border-ocean-surface text-ocean-foam font-semibold rounded-xl transition-all duration-300 ease-out bg-transparent hover:bg-ocean-surface/15 hover:border-ocean-sky hover:scale-[1.02] active:scale-[0.98];
   }
 
   /* Section Padding */
@@ -116,15 +109,15 @@
 
 @layer utilities {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-luna-light to-luna-medium;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-ocean-sky to-ocean-surface;
   }
 
   .bg-ocean-gradient {
-    background: linear-gradient(135deg, #011C40 0%, #023859 50%, #26658C 100%);
+    background: linear-gradient(135deg, #063B52 0%, #0C5F7F 50%, #1A8FB5 100%);
   }
 
   .bg-deep-ocean {
-    background: linear-gradient(180deg, #011C40 0%, #023859 100%);
+    background: linear-gradient(180deg, #063B52 0%, #0C5F7F 100%);
   }
 }
 
@@ -136,4 +129,26 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Parallax utilities */
+.parallax-container {
+  perspective: 1px;
+  overflow-x: hidden;
+}
+
+/* Underwater scene background gradient */
+.underwater-gradient {
+  background: linear-gradient(180deg,
+      #4DB8DB 0%,
+      #1A8FB5 15%,
+      #0C5F7F 40%,
+      #063B52 70%,
+      #042A3B 100%);
+}
+
+/* Bubble glow */
+.bubble {
+  background: radial-gradient(circle at 30% 30%, rgba(224, 247, 250, 0.8), rgba(135, 206, 235, 0.3));
+  border: 1px solid rgba(224, 247, 250, 0.4);
 }

@@ -12,7 +12,7 @@ export default function Contact() {
       transition={{ duration: 0.4 }}
     >
       <ContactHero />
-      <section className="section-padding bg-luna-midnight">
+      <section className="section-padding bg-ocean-abyss">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <ContactForm />
