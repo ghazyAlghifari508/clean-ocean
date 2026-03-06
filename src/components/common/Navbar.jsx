@@ -33,21 +33,20 @@ export default function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled
-            ? "bg-luna-midnight/80 backdrop-blur-xl shadow-lg shadow-luna-midnight/30 border-b border-luna-light/10"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
+            ? "bg-ocean-abyss/80 backdrop-blur-xl shadow-lg shadow-ocean-abyss/30 border-b border-ocean-sky/10"
             : "bg-transparent"
-        }`}
+          }`}
       >
         <div className="container-custom">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-luna-light to-luna-medium flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                <Anchor className="w-5 h-5 text-luna-midnight" />
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-ocean-sky to-ocean-surface flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                <Anchor className="w-5 h-5 text-ocean-abyss" />
               </div>
               <span className="text-xl font-bold font-display text-white tracking-wide">
-                Ocean<span className="text-luna-light">Guard</span>
+                Ocean<span className="text-ocean-sky">Guard</span>
               </span>
             </Link>
 
@@ -59,27 +58,23 @@ export default function Navbar() {
                   <Link
                     key={link.path}
                     to={link.path}
-                    className={`relative px-5 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
-                      isActive
-                        ? "text-luna-light"
+                    className={`relative px-5 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${isActive
+                        ? "text-ocean-sky"
                         : "text-white/70 hover:text-white hover:bg-white/5"
-                    }`}
+                      }`}
                   >
                     {link.name}
                     {isActive && (
                       <motion.div
                         layoutId="activeNav"
-                        className="absolute bottom-0 left-2 right-2 h-0.5 bg-gradient-to-r from-luna-light to-luna-medium rounded-full"
+                        className="absolute bottom-0 left-2 right-2 h-0.5 bg-gradient-to-r from-ocean-sky to-ocean-surface rounded-full"
                         transition={{ type: "spring", stiffness: 300, damping: 30 }}
                       />
                     )}
                   </Link>
                 );
               })}
-              <Link to="/contact" className="ml-4 px-4 text-sm font-medium text-white/70 hover:text-white transition-colors">
-                Contact
-              </Link>
-              <Link to="/simulation" className="ml-2 btn-primary text-sm !px-6 !py-2.5">
+              <Link to="/simulation" className="ml-4 btn-primary text-sm !px-6 !py-2.5">
                 Get Started
               </Link>
             </div>
@@ -106,7 +101,7 @@ export default function Navbar() {
             transition={{ duration: 0.3, ease: "easeOut" }}
             className="fixed inset-0 z-40 md:hidden"
           >
-            <div className="absolute inset-0 bg-luna-midnight/95 backdrop-blur-xl" />
+            <div className="absolute inset-0 bg-ocean-abyss/95 backdrop-blur-xl" />
             <div className="relative flex flex-col items-center justify-center h-full gap-8">
               {navLinks.map((link, i) => {
                 const isActive = location.pathname === link.path;
@@ -119,9 +114,8 @@ export default function Navbar() {
                   >
                     <Link
                       to={link.path}
-                      className={`text-2xl font-display font-semibold transition-colors ${
-                        isActive ? "text-luna-light" : "text-white/70 hover:text-white"
-                      }`}
+                      className={`text-2xl font-display font-semibold transition-colors ${isActive ? "text-ocean-sky" : "text-white/70 hover:text-white"
+                        }`}
                     >
                       {link.name}
                     </Link>
@@ -133,9 +127,6 @@ export default function Navbar() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
               >
-                <Link to="/contact" className="text-lg mt-2 text-white/70 hover:text-white transition-colors">
-                  Contact
-                </Link>
                 <Link to="/simulation" className="btn-primary text-lg mt-4">
                   Get Started
                 </Link>

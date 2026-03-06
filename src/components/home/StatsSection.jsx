@@ -12,23 +12,23 @@ function StatCard({ stat, index }) {
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.15 }}
-      className="glass-card p-8 text-center group hover:border-luna-light/30 transition-all duration-500"
+      viewport={{ once: true, margin: "-10%" }}
+      transition={{ duration: 0.8, delay: index * 0.15, ease: [0.25, 1, 0.5, 1] }}
+      className="glass-card p-8 text-center group hover:border-ocean-sky/30 transition-all duration-500"
     >
-      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-luna-light/20 to-luna-medium/20 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300">
+      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-ocean-sky/20 to-ocean-surface/20 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300">
         {(() => {
           const Icon = iconMap[stat.icon];
-          return Icon ? <Icon className="w-6 h-6 text-luna-light" /> : null;
+          return Icon ? <Icon className="w-6 h-6 text-ocean-sky" /> : null;
         })()}
       </div>
       <div className="font-mono text-4xl md:text-5xl font-bold text-white mb-1">
         {count}
-        <span className="text-luna-light">{stat.suffix}</span>
+        <span className="text-ocean-sky">{stat.suffix}</span>
       </div>
-      <div className="text-luna-medium text-sm font-semibold uppercase tracking-wider mb-3">
+      <div className="text-ocean-surface text-sm font-semibold uppercase tracking-wider mb-3">
         {stat.unit}
       </div>
       <p className="text-white font-semibold text-base mb-2">{stat.label}</p>
@@ -41,15 +41,15 @@ export default function StatsSection() {
   const { ref, isInView } = useScrollAnimation();
 
   return (
-    <section ref={ref} className="section-padding bg-luna-midnight relative">
+    <section ref={ref} className="section-padding relative">
       <div className="container-custom">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-luna-deep/50 text-luna-light text-xs font-semibold uppercase tracking-widest mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-ocean-deep/50 text-ocean-sky text-xs font-semibold uppercase tracking-widest mb-4">
             Fakta & Data
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">

@@ -5,27 +5,17 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-luna-midnight border-t border-luna-deep/30">
-      {/* Wave Separator */}
-      <div className="wave-divider -mt-1">
-        <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-          <path
-            fill="#011C40"
-            d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z"
-          />
-        </svg>
-      </div>
-
+    <footer className="relative bg-[#021824] border-t border-ocean-abyss/40">
       <div className="container-custom py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link to="/" className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-luna-light to-luna-medium flex items-center justify-center">
-                <Anchor className="w-5 h-5 text-luna-midnight" />
+            <Link to="/" className="flex items-center gap-3 mb-5 group">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-ocean-sky to-ocean-surface flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                <Anchor className="w-5 h-5 text-ocean-abyss" />
               </div>
               <span className="text-xl font-bold font-display text-white">
-                Ocean<span className="text-luna-light">Guard</span>
+                Ocean<span className="text-ocean-sky">Guard</span>
               </span>
             </Link>
             <p className="text-white/50 text-sm leading-relaxed mb-6">
@@ -42,7 +32,7 @@ export default function Footer() {
                   key={label}
                   href="#"
                   aria-label={label}
-                  className="w-10 h-10 rounded-lg bg-luna-dark/50 flex items-center justify-center text-white/50 hover:text-luna-light hover:bg-luna-deep/50 transition-all duration-300"
+                  className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-white/50 hover:text-ocean-sky hover:bg-white/10 transition-all duration-300"
                 >
                   <Icon className="w-4 h-4" />
                 </a>
@@ -65,7 +55,7 @@ export default function Footer() {
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className="text-white/50 hover:text-luna-light text-sm transition-colors duration-300 flex items-center gap-2"
+                    className="text-white/50 hover:text-ocean-sky text-sm transition-colors duration-300 flex items-center gap-2"
                   >
                     <ExternalLink className="w-3 h-3" />
                     {link.name}
@@ -90,7 +80,7 @@ export default function Footer() {
                 <li key={item}>
                   <Link
                     to="/content"
-                    className="text-white/50 hover:text-luna-light text-sm transition-colors duration-300 flex items-center gap-2"
+                    className="text-white/50 hover:text-ocean-sky text-sm transition-colors duration-300 flex items-center gap-2"
                   >
                     <ExternalLink className="w-3 h-3" />
                     {item}
@@ -107,15 +97,15 @@ export default function Footer() {
             </h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <Mail className="w-4 h-4 text-luna-medium mt-0.5 flex-shrink-0" />
+                <Mail className="w-4 h-4 text-ocean-surface mt-0.5 flex-shrink-0" />
                 <span className="text-white/50 text-sm">info@oceanguard.id</span>
               </li>
               <li className="flex items-start gap-3">
-                <Phone className="w-4 h-4 text-luna-medium mt-0.5 flex-shrink-0" />
+                <Phone className="w-4 h-4 text-ocean-surface mt-0.5 flex-shrink-0" />
                 <span className="text-white/50 text-sm">+62 812 3456 7890</span>
               </li>
               <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-luna-medium mt-0.5 flex-shrink-0" />
+                <MapPin className="w-4 h-4 text-ocean-surface mt-0.5 flex-shrink-0" />
                 <span className="text-white/50 text-sm">
                   Jakarta, Indonesia
                 </span>
@@ -125,7 +115,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-luna-deep/30 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-white/30 text-sm">
             © {currentYear} OceanGuard. Jaga Lautmu, Jaga Masa Depanmu.
           </p>

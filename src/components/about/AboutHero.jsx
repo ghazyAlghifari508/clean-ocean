@@ -10,15 +10,15 @@ export default function AboutHero() {
           className="w-full h-full object-cover"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-luna-midnight/70 via-luna-dark/60 to-luna-midnight" />
+        <div className="absolute inset-0 bg-gradient-to-b from-ocean-abyss/70 via-ocean-deep/60 to-ocean-abyss" />
       </div>
 
       <div className="relative z-10 container-custom text-center py-32">
         <motion.span
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0}}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-block px-4 py-1.5 rounded-full bg-luna-medium/20 border border-luna-medium/30 text-luna-light text-sm font-medium backdrop-blur-sm mb-6"
+          className="inline-block px-4 py-1.5 rounded-full bg-ocean-surface/20 border border-ocean-surface/30 text-ocean-foam text-sm font-medium backdrop-blur-sm mb-6"
         >
           🐠 Tentang Kami
         </motion.span>
@@ -45,7 +45,7 @@ export default function AboutHero() {
 
       <div className="absolute bottom-0 left-0 right-0 z-10">
         <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-12 md:h-20">
-          <path fill="#011C40" d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z" />
+          <path fill="#063B52" d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z" />
         </svg>
       </div>
     </section>

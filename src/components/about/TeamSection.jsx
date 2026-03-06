@@ -6,7 +6,7 @@ export default function TeamSection() {
   const { ref, isInView } = useScrollAnimation();
 
   return (
-    <section ref={ref} className="section-padding bg-luna-midnight">
+    <section ref={ref} className="section-padding bg-ocean-abyss">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -14,7 +14,7 @@ export default function TeamSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-luna-deep/50 text-luna-light text-xs font-semibold uppercase tracking-widest mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-ocean-deep/50 text-ocean-sky text-xs font-semibold uppercase tracking-widest mb-4">
             Tim Kami
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
@@ -37,12 +37,12 @@ export default function TeamSection() {
               className="glass-card p-8 text-center group"
             >
               {/* Avatar */}
-              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-luna-light to-luna-medium flex items-center justify-center mx-auto mb-5 text-luna-midnight font-bold text-xl font-display group-hover:scale-110 transition-transform duration-300">
+              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-ocean-sky to-ocean-surface flex items-center justify-center mx-auto mb-5 text-ocean-abyss font-bold text-xl font-display group-hover:scale-110 transition-transform duration-300">
                 {member.avatar}
               </div>
 
               <h3 className="text-lg font-bold text-white mb-1">{member.name}</h3>
-              <p className="text-luna-medium text-sm font-medium mb-4">{member.role}</p>
+              <p className="text-ocean-surface text-sm font-medium mb-4">{member.role}</p>
               <p className="text-white/40 text-sm leading-relaxed">{member.bio}</p>
             </motion.div>
           ))}

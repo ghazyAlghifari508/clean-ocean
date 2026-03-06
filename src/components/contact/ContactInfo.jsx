@@ -35,12 +35,12 @@ export default function ContactInfo() {
               href={href}
               className="flex items-start gap-4 group"
             >
-              <div className="w-12 h-12 rounded-xl bg-luna-deep/30 flex items-center justify-center flex-shrink-0 group-hover:bg-luna-medium/20 transition-colors">
-                <Icon className="w-5 h-5 text-luna-medium" />
+              <div className="w-12 h-12 rounded-xl bg-ocean-deep/30 flex items-center justify-center flex-shrink-0 group-hover:bg-ocean-surface/20 transition-colors">
+                <Icon className="w-5 h-5 text-ocean-surface" />
               </div>
               <div>
                 <p className="text-white/40 text-xs uppercase tracking-wider mb-1">{label}</p>
-                <p className="text-white font-medium group-hover:text-luna-light transition-colors">
+                <p className="text-white font-medium group-hover:text-ocean-sky transition-colors">
                   {value}
                 </p>
               </div>
@@ -57,16 +57,16 @@ export default function ContactInfo() {
             <a
               key={label}
               href={href}
-              className="flex items-center gap-4 p-3 rounded-xl hover:bg-luna-deep/30 transition-all duration-300 group"
+              className="flex items-center gap-4 p-3 rounded-xl hover:bg-ocean-deep/30 transition-all duration-300 group"
             >
-              <div className="w-10 h-10 rounded-lg bg-luna-deep/30 flex items-center justify-center group-hover:bg-luna-medium/20 transition-colors">
-                <Icon className="w-4 h-4 text-luna-medium" />
+              <div className="w-10 h-10 rounded-lg bg-ocean-deep/30 flex items-center justify-center group-hover:bg-ocean-surface/20 transition-colors">
+                <Icon className="w-4 h-4 text-ocean-surface" />
               </div>
               <div className="flex-1">
                 <p className="text-white text-sm font-medium">{label}</p>
                 <p className="text-white/40 text-xs">{handle}</p>
               </div>
-              <ExternalLink className="w-4 h-4 text-white/20 group-hover:text-luna-light transition-colors" />
+              <ExternalLink className="w-4 h-4 text-white/20 group-hover:text-ocean-sky transition-colors" />
             </a>
           ))}
         </div>
