@@ -1,16 +1,38 @@
 import { motion } from "motion/react";
+import Lottie from "lottie-react";
+import fishAnim1 from "../../assets/banyak_ikan.json";
+import fishAnim2 from "../../assets/fish1.json";
+import turtleAnim from "../../assets/Turtle.json";
+import fishSchoolAnim from "../../assets/fish_school.json";
 
-export function Fish({ color = "#FF7F7F", size = 50, style, className = "" }) {
-    return (
-        <svg width={size} height={size * 0.55} viewBox="0 0 100 55" fill="none" style={style} className={className}>
-            <ellipse cx="45" cy="27" rx="35" ry="18" fill={color} opacity="0.9" />
-            <polygon points="80,27 100,10 100,44" fill={color} opacity="0.85" />
-            <circle cx="25" cy="22" r="3" fill="#fff" />
-            <circle cx="25" cy="22" r="1.5" fill="#063B52" />
-            <path d="M15 27 Q25 32, 35 27" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" fill="none" />
-            <ellipse cx="50" cy="12" rx="10" ry="6" fill={color} opacity="0.7" transform="rotate(-15 50 12)" />
-        </svg>
-    );
+
+export function Fish({ type = 1, size = 120, className = "", hue = 0 }) {
+  const animationData = type === 2 ? fishAnim2 : fishAnim1;
+
+  return (
+    <div 
+      style={{ 
+        width: size, 
+        transform: "scaleX(-1)", 
+        filter: `hue-rotate(${hue}deg)` 
+      }} 
+      className={className}
+    >
+      <Lottie animationData={animationData} loop={true} />
+    </div>
+  );
+}
+
+export function FishSchool({ className = "" }) {
+  return (
+    <div className={`w-full h-full ${className}`}>
+      <Lottie 
+        animationData={fishSchoolAnim} 
+        loop={true} 
+        style={{ width: "100%", height: "100%" }}
+      />
+    </div>
+  );
 }
 
 export function TropicalFish({ color = "#FFD700", accent = "#FF6347", size = 45, style, className = "" }) {
@@ -27,35 +49,38 @@ export function TropicalFish({ color = "#FFD700", accent = "#FF6347", size = 45,
     );
 }
 
-export function Turtle({ size = 90, style, className = "" }) {
-    return (
-        <svg width={size} height={size * 0.6} viewBox="0 0 120 72" fill="none" style={style} className={className}>
-            <ellipse cx="60" cy="38" rx="32" ry="22" fill="#2E8B57" opacity="0.85" />
-            <ellipse cx="60" cy="38" rx="24" ry="16" fill="#3CB371" opacity="0.6" />
-            <path d="M48 28 L60 22 L72 28" stroke="#2E8B57" strokeWidth="2" fill="none" opacity="0.5" />
-            <path d="M45 38 L60 32 L75 38" stroke="#2E8B57" strokeWidth="2" fill="none" opacity="0.5" />
-            <path d="M48 48 L60 42 L72 48" stroke="#2E8B57" strokeWidth="2" fill="none" opacity="0.5" />
-            <ellipse cx="95" cy="34" rx="12" ry="8" fill="#66CDAA" opacity="0.9" />
-            <circle cx="102" cy="31" r="2" fill="#063B52" />
-            <ellipse cx="40" cy="22" rx="15" ry="5" fill="#66CDAA" opacity="0.7" transform="rotate(-30 40 22)" />
-            <ellipse cx="40" cy="54" rx="15" ry="5" fill="#66CDAA" opacity="0.7" transform="rotate(30 40 54)" />
-            <ellipse cx="80" cy="22" rx="12" ry="4" fill="#66CDAA" opacity="0.7" transform="rotate(20 80 22)" />
-            <ellipse cx="80" cy="54" rx="12" ry="4" fill="#66CDAA" opacity="0.7" transform="rotate(-20 80 54)" />
-            <polygon points="28,38 18,34 18,42" fill="#66CDAA" opacity="0.7" />
-        </svg>
-    );
+export function Turtle({ size = 150, className = "" }) {
+  return (
+    <div style={{ width: size }} className={className}>
+      <Lottie animationData={turtleAnim} loop={true} />
+    </div>
+  );
 }
 
 export function Jellyfish({ size = 55, color = "#E0B0FF", style, className = "" }) {
     return (
-        <svg width={size} height={size * 1.4} viewBox="0 0 60 84" fill="none" style={style} className={className}>
-            <path d="M5,45 Q5,5 30,5 Q55,5 55,45 Z" fill={color} opacity="0.5" />
-            <path d="M10,42 Q10,12 30,12 Q50,12 50,42 Z" fill={color} opacity="0.3" />
-            <path d="M15,45 Q12,60 18,75" stroke={color} strokeWidth="2" fill="none" opacity="0.5" />
-            <path d="M25,45 Q22,62 28,80" stroke={color} strokeWidth="2" fill="none" opacity="0.4" />
-            <path d="M35,45 Q38,62 32,80" stroke={color} strokeWidth="2" fill="none" opacity="0.4" />
-            <path d="M45,45 Q48,60 42,75" stroke={color} strokeWidth="2" fill="none" opacity="0.5" />
-        </svg>
+        <motion.svg 
+            width={size} 
+            height={size * 1.4} 
+            viewBox="0 0 60 84" 
+            fill="none" 
+            style={{ ...style, display: 'block' }} // Paksa display block
+            className={className}
+        >
+            {/* Payung Utama */}
+            <motion.path 
+                d="M5,45 Q5,5 30,5 Q55,5 55,45 Z" 
+                fill={color} 
+                opacity="0.6" 
+                animate={{ scaleY: [1, 0.8, 1] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                style={{ originY: "0%" }}
+            />
+            
+            {/* Tentakel Sederhana (buat ngetes muncul atau nggak) */}
+            <path d="M20,45 L20,70" stroke={color} strokeWidth="3" opacity="0.5" />
+            <path d="M40,45 L40,70" stroke={color} strokeWidth="3" opacity="0.5" />
+        </motion.svg>
     );
 }
 

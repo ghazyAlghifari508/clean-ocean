@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Fish, TropicalFish, Turtle, Jellyfish, Bubble } from "./OceanCreatures";
+import { Fish, TropicalFish, Turtle, Jellyfish, Bubble, FishSchool } from "./OceanCreatures";
 
 export default function OceanBackground() {
     return (
@@ -42,7 +42,7 @@ export default function OceanBackground() {
             {/* Upper Zone (Near Stats) */}
             <div className="absolute" style={{ top: "8%", left: "0", width: "100%" }}>
                 <div className="animate-swim-right" style={{ animationDuration: "25s" }}>
-                    <Fish color="#FF7F7F" size={50} />
+                    <Fish size={150} hue={0} />
                 </div>
                 <div className="animate-swim-left" style={{ animationDelay: "5s", animationDuration: "30s" }}>
                     <TropicalFish color="#87CEEB" accent="#4DB8DB" size={45} />
@@ -61,10 +61,10 @@ export default function OceanBackground() {
             {/* Mid Zone (Near Problems) */}
             <div className="absolute" style={{ top: "35%", left: "0", width: "100%" }}>
                 <div className="animate-turtle-glide" style={{ animationDelay: "2s", animationDuration: "45s" }}>
-                    <Turtle size={110} />
+                    <Turtle size={200} />
                 </div>
                 <div className="animate-swim-right" style={{ animationDelay: "12s", animationDuration: "20s" }}>
-                    <Fish color="#FFB74D" size={40} />
+                   <Fish type={2} size={100} />
                 </div>
             </div>
 
@@ -83,7 +83,7 @@ export default function OceanBackground() {
                     <TropicalFish color="#FFD700" accent="#FF6347" size={55} />
                 </div>
                 <div className="animate-swim-right" style={{ animationDelay: "8s", animationDuration: "22s" }}>
-                    <Fish color="#66CDAA" size={45} />
+                    <Fish size={120} hue={90} />
                 </div>
             </div>
 
@@ -91,6 +91,18 @@ export default function OceanBackground() {
                 <div className="animate-swim-left" style={{ animationDelay: "15s", animationDuration: "26s" }}>
                     <TropicalFish color="#90EE90" accent="#2E8B57" size={40} />
                 </div>
+            </div>
+
+            {/* Ganti bagian FishSchool di paling bawah dengan ini */}
+            <div 
+                className="absolute w-full pointer-events-none" 
+                style={{ 
+                    bottom: "0",      // Menempel di paling bawah
+                    height: "600px",  // Sesuaikan tinggi area CTA kamu
+                    zIndex: 0 
+                }}
+            >
+                <FishSchool className="opacity-40" /> 
             </div>
         </div>
     );
