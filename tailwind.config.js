@@ -39,8 +39,14 @@ export default {
         "sway-slow": "sway 6s ease-in-out infinite",
         "lobster-walk": "lobsterWalk 12s ease-in-out infinite",
         "jellyfish": "jellyfish 8s ease-in-out infinite",
+        "shine": "shine 3s infinite",
       },
       keyframes: {
+        shine: {
+          "0%": { transform: "translateX(-150%)" },
+          "50%": { transform: "translateX(150%)" },
+          "100%": { transform: "translateX(150%)" },
+        },
         fadeIn: {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" },

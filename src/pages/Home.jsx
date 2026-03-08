@@ -20,7 +20,7 @@ export default function Home() {
         Single continuous vertical section from just below surface to the seabed.
         This provides the seamless dive experience the user requested.
       */}
-      <div className="relative bg-gradient-to-b from-ocean-abyss via-ocean-deep to-[#021824]">
+      <div className="relative">
         {/* Animated sea creatures floating in the background throughout the entire rest of the page */}
         <OceanBackground />
 

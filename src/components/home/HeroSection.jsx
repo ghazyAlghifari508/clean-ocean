@@ -37,12 +37,11 @@ export default function HeroSection() {
           <source src="/assets/Video%20Project.mp4" type="video/mp4" />
         </motion.video>
 
-        {/* Subtle unified dark overlay to soften the loop and improve text readability */}
-        <div className="absolute inset-0 bg-ocean-abyss/30" />
+        {/* Subtle dark overlay for aesthetics to make text pop gently */}
+        <div className="absolute inset-0 bg-ocean-abyss/40 pointer-events-none" />
 
-        {/* Gradient overlays for seamless blending into the next section (#063B52) */}
-        <div className="absolute inset-0 bg-gradient-to-b from-ocean-abyss/40 via-ocean-abyss/50 to-[#063B52]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ocean-abyss/50 via-transparent to-ocean-abyss/50" />
+        {/* Only a subtle bottom gradient to blend the very edge into the ocean below, keeping the video bright */}
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0ea5e9] to-transparent pointer-events-none" />
       </motion.div>
 
       {/* Floating Light Particles */}

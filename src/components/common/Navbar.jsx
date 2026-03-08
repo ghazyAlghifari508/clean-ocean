@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { motion, AnimatePresence } from "motion/react";
-import { Menu, X, Anchor } from "lucide-react";
+import { motion, AnimatePresence, useScroll, useTransform } from "motion/react";
+import { Menu, X, ShipWheel } from "lucide-react";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -14,6 +14,10 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const location = useLocation();
+  const { scrollY } = useScroll();
+
+  // Rotate the ship wheel based on scroll
+  const wheelRotation = useTransform(scrollY, [0, 1000], [0, 360], { clamp: false });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,106 +33,153 @@ export default function Navbar() {
 
   return (
     <>
-      <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-            ? "bg-ocean-abyss/80 backdrop-blur-xl shadow-lg shadow-ocean-abyss/30 border-b border-ocean-sky/10"
-            : "bg-transparent"
-          }`}
-      >
-        <div className="container-custom">
-          <div className="flex items-center justify-between h-20">
+      {/* Container for the floating pill navbar */}
+      <div className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 w-full pointer-events-none mt-4 md:mt-6 transition-all duration-500">
+        <motion.nav
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, type: "spring", stiffness: 100, damping: 20 }}
+          className={`pointer-events-auto transition-all duration-700 rounded-full ${isScrolled
+              ? "bg-ocean-abyss/85 backdrop-blur-xl shadow-[0_8px_32px_rgba(6,59,82,0.6)] border border-ocean-sky/20 py-3 px-6 md:px-8 w-full max-w-5xl"
+              : "bg-transparent py-4 px-6 md:px-10 w-full max-w-7xl"
+            }`}
+        >
+          <div className="flex items-center justify-between">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-ocean-sky to-ocean-surface flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                <Anchor className="w-5 h-5 text-ocean-abyss" />
+              <div className="relative w-11 h-11 rounded-full bg-gradient-to-br from-ocean-sky/10 to-ocean-surface/10 border border-ocean-sky/30 shadow-lg shadow-ocean-sky/10 flex items-center justify-center overflow-hidden">
+                <div className="absolute inset-0 bg-ocean-sky/20 scale-0 group-hover:scale-100 transition-transform duration-500 rounded-full origin-center" />
+                <motion.div style={{ rotate: wheelRotation }}>
+                  <ShipWheel strokeWidth={1.5} className="w-6 h-6 text-ocean-sky drop-shadow-[0_0_8px_rgba(135,206,235,0.8)] transition-transform duration-300 group-hover:scale-110" />
+                </motion.div>
               </div>
-              <span className="text-xl font-bold font-display text-white tracking-wide">
+              <span className={`text-2xl font-bold font-display tracking-wide transition-colors duration-300 ${isScrolled ? "text-white" : "text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]"}`}>
                 Ocean<span className="text-ocean-sky">Guard</span>
               </span>
             </Link>
 
             {/* Desktop Nav */}
-            <div className="hidden md:flex items-center gap-2">
-              {navLinks.map((link) => {
-                const isActive = location.pathname === link.path;
-                return (
-                  <Link
-                    key={link.path}
-                    to={link.path}
-                    className={`relative px-5 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${isActive
-                        ? "text-ocean-sky"
-                        : "text-white/70 hover:text-white hover:bg-white/5"
-                      }`}
+            <div className="hidden md:flex items-center gap-1 md:gap-3 lg:gap-5">
+              <div className="flex items-center bg-white/5 rounded-full p-1.5 border border-white/10 backdrop-blur-sm shadow-inner">
+                {navLinks.map((link) => {
+                  const isActive = location.pathname === link.path;
+                  return (
+                    <Link
+                      key={link.path}
+                      to={link.path}
+                      className={`relative px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${isActive
+                          ? "text-ocean-abyss bg-ocean-sky shadow-[0_0_15px_rgba(135,206,235,0.5)]"
+                          : "text-white/80 hover:text-white hover:bg-white/10"
+                        }`}
+                    >
+                      {link.name}
+                    </Link>
+                  );
+                })}
+              </div>
+
+              <Link
+                to="/simulation"
+                className="ml-2 btn-primary text-sm !px-6 !py-2.5 rounded-full !shadow-[0_0_20px_rgba(77,184,219,0.3)] hover:!shadow-[0_0_30px_rgba(77,184,219,0.5)] group relative overflow-hidden transition-all duration-300 hover:-translate-y-0.5"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-[150%] group-hover:animate-[shine_2s_infinite]" />
+                <span className="relative z-10 flex items-center gap-2">
+                  <span>Get Started</span>
+                  <motion.div
+                    animate={{ x: [0, 4, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                   >
-                    {link.name}
-                    {isActive && (
-                      <motion.div
-                        layoutId="activeNav"
-                        className="absolute bottom-0 left-2 right-2 h-0.5 bg-gradient-to-r from-ocean-sky to-ocean-surface rounded-full"
-                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                      />
-                    )}
-                  </Link>
-                );
-              })}
-              <Link to="/simulation" className="ml-4 btn-primary text-sm !px-6 !py-2.5">
-                Get Started
+                    →
+                  </motion.div>
+                </span>
               </Link>
             </div>
 
             {/* Mobile Hamburger */}
             <button
               onClick={() => setIsMobileOpen(!isMobileOpen)}
-              className="md:hidden w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-white hover:bg-white/10 transition-colors"
+              className="md:hidden w-11 h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-white/15 transition-colors shadow-lg backdrop-blur-md"
               aria-label="Toggle menu"
             >
-              {isMobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              <AnimatePresence mode="wait">
+                {isMobileOpen ? (
+                  <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}>
+                    <X className="w-5 h-5 drop-shadow-md" />
+                  </motion.div>
+                ) : (
+                  <motion.div key="menu" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
+                    <Menu className="w-5 h-5 drop-shadow-md" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </button>
           </div>
-        </div>
-      </motion.nav>
+        </motion.nav>
+      </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isMobileOpen && (
           <motion.div
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed inset-0 z-40 md:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="fixed inset-0 z-40 md:hidden bg-ocean-abyss/85 backdrop-blur-2xl"
           >
-            <div className="absolute inset-0 bg-ocean-abyss/95 backdrop-blur-xl" />
-            <div className="relative flex flex-col items-center justify-center h-full gap-8">
+            {/* Background Decorations for Mobile Menu */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-ocean-sky/15 rounded-full blur-[80px]" />
+              <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-ocean-surface/15 rounded-full blur-[100px]" />
+            </div>
+
+            <div className="relative flex flex-col items-center justify-center h-full gap-8 px-6">
+              {/* Rotating Big Wheel in BG */}
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-5 pointer-events-none"
+              >
+                <ShipWheel className="w-[120vw] h-[120vw]" />
+              </motion.div>
+
               {navLinks.map((link, i) => {
                 const isActive = location.pathname === link.path;
                 return (
                   <motion.div
                     key={link.path}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1 }}
+                    initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 20, scale: 0.9 }}
+                    transition={{ delay: i * 0.1, duration: 0.4, type: "spring", stiffness: 100 }}
                   >
                     <Link
                       to={link.path}
-                      className={`text-2xl font-display font-semibold transition-colors ${isActive ? "text-ocean-sky" : "text-white/70 hover:text-white"
+                      className={`text-3xl sm:text-4xl font-display font-semibold transition-all duration-300 flex items-center gap-4 ${isActive ? "text-ocean-sky drop-shadow-[0_0_15px_rgba(135,206,235,0.5)] scale-110" : "text-white/70 hover:text-white hover:scale-105"
                         }`}
                     >
+                      {isActive && (
+                        <motion.div layoutId="mobileActive" className="w-2.5 h-2.5 rounded-full bg-ocean-sky shadow-[0_0_12px_rgba(135,206,235,1)]" />
+                      )}
                       {link.name}
+                      {isActive && (
+                        <motion.div layoutId="mobileActiveRight" className="w-2.5 h-2.5 rounded-full bg-ocean-sky shadow-[0_0_12px_rgba(135,206,235,1)]" />
+                      )}
                     </Link>
                   </motion.div>
                 );
               })}
+
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ delay: 0.5, duration: 0.4 }}
+                className="mt-8"
               >
-                <Link to="/simulation" className="btn-primary text-lg mt-4">
-                  Get Started
+                <Link to="/simulation" className="btn-primary text-lg px-8 py-4 rounded-full shadow-[0_0_30px_rgba(77,184,219,0.3)] hover:shadow-[0_0_40px_rgba(77,184,219,0.5)] flex items-center gap-3 group transition-all duration-300">
+                  <ShipWheel className="w-6 h-6 group-hover:animate-[spin_3s_linear_infinite]" />
+                  <span>Start Simulation</span>
                 </Link>
               </motion.div>
             </div>
