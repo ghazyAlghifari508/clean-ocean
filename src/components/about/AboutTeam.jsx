@@ -25,12 +25,12 @@ export default function AboutTeam() {
 
   return (
     <section className="py-24 bg-white relative overflow-hidden">
-      
+
       <div className="absolute top-0 right-0 w-64 h-64 bg-wave-light rounded-bl-full opacity-50 pointer-events-none"></div>
 
       <div className="container mx-auto px-6 lg:px-16 relative z-10">
-        
-        <motion.div 
+
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -44,7 +44,7 @@ export default function AboutTeam() {
             Di Balik Layar OceanGuard
           </h2>
           <p className="text-ocean-deep/70 max-w-2xl mx-auto font-sans leading-relaxed">
-            Perubahan besar digerakkan oleh niat kecil yang bersatu. Temui pemikir dan pendiri 
+            Perubahan besar digerakkan oleh niat kecil yang bersatu. Temui pemikir dan pendiri
             di balik pengalaman edukasi interaktif ini.
           </p>
         </motion.div>
@@ -60,18 +60,18 @@ export default function AboutTeam() {
               className="group"
             >
               <div className="relative w-full aspect-[4/5] rounded-[2rem] overflow-hidden mb-6 shadow-xl shadow-ocean-abyss/10 border border-gray-100">
-                <img 
-                  src={member.image} 
-                  alt={member.name} 
+                <img
+                  src={member.image}
+                  alt={member.name}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:brightness-110 grayscale-[30%] group-hover:grayscale-0"
                 />
-                
+
                 {/* Overlay Quote */}
                 <div className="absolute inset-0 bg-gradient-to-t from-ocean-abyss/90 via-ocean-abyss/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
                   <p className="text-white italic font-serif leading-relaxed mb-4 text-center">
                     "{member.quote}"
                   </p>
-                  
+
                   {/* Social Icons Placeholder */}
                   <div className="flex justify-center gap-4 text-white">
                     <Linkedin className="w-5 h-5 hover:text-ocean-sky cursor-pointer transition-colors" />

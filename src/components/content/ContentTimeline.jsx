@@ -40,7 +40,7 @@ export default function ContentTimeline() {
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-white rounded-full blur-[80px] translate-y-1/2 -translate-x-1/4 pointer-events-none"></div>
 
       <div className="container mx-auto px-6 lg:px-16 relative z-10">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -67,11 +67,10 @@ export default function ContentTimeline() {
             const isEven = index % 2 === 0;
 
             return (
-              <div 
+              <div
                 key={index}
-                className={`relative flex flex-col md:flex-row items-center mb-16 last:mb-0 ${
-                  isEven ? "md:flex-row-reverse" : ""
-                }`}
+                className={`relative flex flex-col md:flex-row items-center mb-16 last:mb-0 ${isEven ? "md:flex-row-reverse" : ""
+                  }`}
               >
                 {/* Timeline Dot (Center) */}
                 <motion.div
@@ -96,21 +95,20 @@ export default function ContentTimeline() {
                   className={`w-full md:w-1/2 pl-20 md:px-12 py-4 flex ${isEven ? "md:justify-end" : "justify-start"}`}
                 >
                   <div className={`bg-white rounded-2xl p-8 shadow-xl shadow-ocean-abyss/5 border border-ocean-sky/10 relative group hover:-translate-y-1 transition-transform duration-300 w-full ${isEven ? 'md:text-right' : 'text-left'}`}>
-                    
+
                     {/* Small pointer triangle logic for desktop */}
-                    <div className={`hidden md:block absolute top-8 w-4 h-4 bg-white border-t border-l border-ocean-sky/10 rotate-45 ${
-                      isEven ? "right-[-8px] border-r-0 border-b-0" : "left-[-8px] border-l-0 border-t-0 border-r border-b"
-                    }`}></div>
+                    <div className={`hidden md:block absolute top-8 w-4 h-4 bg-white border-t border-l border-ocean-sky/10 rotate-45 ${isEven ? "right-[-8px] border-r-0 border-b-0" : "left-[-8px] border-l-0 border-t-0 border-r border-b"
+                      }`}></div>
 
                     <div className={`flex items-center gap-2 mb-3 text-ocean-sky font-bold ${isEven ? 'md:justify-end' : ''}`}>
                       <Clock className="w-4 h-4" />
                       <span className="uppercase tracking-widest text-xs">{step.year}</span>
                     </div>
-                    
+
                     <h3 className="font-display font-bold text-ocean-abyss text-2xl mb-4">
                       {step.title}
                     </h3>
-                    
+
                     <p className="text-ocean-deep/70 leading-relaxed font-sans">
                       {step.desc}
                     </p>

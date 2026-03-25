@@ -11,7 +11,7 @@ const CONTENT_DATA = [
     category: "Fakta",
     type: "article",
     desc: "Plastik tidak pernah benar-benar terurai; mereka hanya pecah menjadi partikel mikro tak kasat mata.",
-    image: "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1530587191325-3db32d826c18?w=800&q=80",
     size: "large", // spans 2 cols, 2 rows in bento
     icon: <Info className="w-5 h-5" />,
   },
@@ -29,7 +29,7 @@ const CONTENT_DATA = [
     category: "Dampak",
     type: "article",
     desc: "Pemutihan terumbu karang masif terjadi akibat kenaikan ekstrem suhu laut global.",
-    image: "https://images.unsplash.com/photo-1618477461853-cf6ed80fbfc9?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=600&q=80",
     size: "medium", // spans 1 col, 2 rows
     icon: <AlertTriangle className="w-5 h-5" />,
   },
@@ -65,21 +65,20 @@ export default function ContentBentoGrid() {
   return (
     <section id="content-filters" className="py-24 bg-white scroll-mt-10">
       <div className="container mx-auto px-6 lg:px-16">
-        
+
         {/* Interactive Filter sub-navigation */}
         <div className="flex flex-col items-center mb-16">
           <p className="text-ocean-surface font-semibold tracking-widest uppercase text-sm mb-6">
             Eksplorasi Topik
           </p>
-          
+
           <div className="flex flex-wrap justify-center gap-2 p-1.5 bg-gray-100/80 backdrop-blur-sm rounded-full border border-gray-200 shadow-inner">
             {FILTER_TABS.map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveFilter(tab)}
-                className={`relative px-6 py-2.5 rounded-full text-sm font-bold transition-colors z-10 ${
-                  activeFilter === tab ? "text-white" : "text-ocean-abyss/60 hover:text-ocean-abyss"
-                }`}
+                className={`relative px-6 py-2.5 rounded-full text-sm font-bold transition-colors z-10 ${activeFilter === tab ? "text-white" : "text-ocean-abyss/60 hover:text-ocean-abyss"
+                  }`}
               >
                 {activeFilter === tab && (
                   <motion.div
@@ -117,14 +116,14 @@ export default function ContentBentoGrid() {
                     <>
                       {/* Image background with zoom on hover for articles */}
                       <div className="absolute inset-0 z-0 bg-ocean-ink">
-                        <img 
-                          src={item.image} 
-                          alt={item.title} 
+                        <img
+                          src={item.image}
+                          alt={item.title}
                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100"
                         />
                       </div>
                       <div className="absolute inset-0 z-10 bg-gradient-to-t from-ocean-abyss/90 via-ocean-abyss/40 to-transparent mix-blend-multiply"></div>
-                      
+
                       <div className="relative z-20 flex flex-col h-full justify-between p-8">
                         <div className="flex justify-between items-start">
                           <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-md text-white text-xs font-bold uppercase tracking-widest rounded shadow-sm">
@@ -134,7 +133,7 @@ export default function ContentBentoGrid() {
                             <ArrowRight className="w-4 h-4" />
                           </div>
                         </div>
-                        
+
                         <div>
                           <h3 className={`font-display font-bold text-white mb-3 ${item.size === 'large' ? 'text-3xl md:text-4xl' : 'text-2xl'}`}>
                             {item.title}

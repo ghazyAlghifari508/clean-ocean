@@ -5,7 +5,7 @@ export const articlesData = [
     description:
       "Mikroplastik berukuran kurang dari 5mm tersebar di seluruh lautan dunia. Partikel kecil ini masuk ke rantai makanan dan berdampak langsung pada kesehatan manusia.",
     category: "Fakta & Data",
-    image: "https://images.unsplash.com/photo-1621451537084-482c73073a0f?w=600&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1530587191325-3db32d826c18?w=600&h=400&fit=crop",
     readTime: "5 menit",
     date: "28 Feb 2026",
   },
@@ -15,7 +15,7 @@ export const articlesData = [
     description:
       "Jaring ikan yang ditinggalkan atau hilang terus menjebak dan membunuh hewan laut selama puluhan tahun. Fenomena ini dikenal sebagai ghost fishing.",
     category: "Dampak",
-    image: "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=600&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1591025207163-942350e47db2?w=600&h=400&fit=crop",
     readTime: "4 menit",
     date: "25 Feb 2026",
   },
@@ -45,7 +45,7 @@ export const articlesData = [
     description:
       "Aksi bersih-bersih pantai bukan hanya soal memungut sampah, tapi membangun kesadaran kolektif dan menginspirasi perubahan perilaku masyarakat pesisir.",
     category: "Solusi",
-    image: "https://images.unsplash.com/photo-1618477461853-cf6ed80faba5?w=600&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=600&h=400&fit=crop",
     readTime: "4 menit",
     date: "18 Feb 2026",
   },

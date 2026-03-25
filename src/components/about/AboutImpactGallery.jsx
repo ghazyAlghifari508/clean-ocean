@@ -13,7 +13,7 @@ export default function AboutImpactGallery() {
 
   const photos = [
     {
-      url: "https://images.unsplash.com/photo-1618477461853-cf6ed80fbfc9?auto=format&fit=crop&q=80&w=800",
+      url: "https://images.unsplash.com/photo-1546026423-cc4642628d2b?auto=format&fit=crop&q=80&w=800",
       title: "Kerusakan Karang",
       location: "Raja Ampat, 2021"
     },
@@ -23,7 +23,7 @@ export default function AboutImpactGallery() {
       location: "Bali, 2022"
     },
     {
-      url: "https://images.unsplash.com/photo-1520695287272-b7f8af46d367?auto=format&fit=crop&q=80&w=800",
+      url: "https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?auto=format&fit=crop&q=80&w=800",
       title: "Masyarakat Pesisir",
       location: "Bajo, 2023"
     },
@@ -37,13 +37,13 @@ export default function AboutImpactGallery() {
   return (
     // The section is heightened to allow scrolling distance
     <section ref={targetRef} className="relative h-[250vh] bg-ocean-abyss">
-      
+
       {/* Sticky container that locks the view while scrolling */}
       <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden pt-20">
-        
+
         {/* Text Container: Always on top */}
         <div className="w-full px-6 md:px-16 shrink-0 z-20 pointer-events-none mb-8 md:mb-12">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -64,16 +64,16 @@ export default function AboutImpactGallery() {
         {/* The horizontally translating container: Always below text */}
         <motion.div style={{ x }} className="flex gap-6 md:gap-8 px-6 md:px-16 w-max pb-12">
           {photos.map((photo, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="relative w-[300px] md:w-[450px] lg:w-[600px] aspect-[4/5] md:aspect-[3/2] shrink-0 rounded-3xl overflow-hidden group border border-white/10 shadow-2xl"
             >
-              <img 
-                src={photo.url} 
-                alt={photo.title} 
+              <img
+                src={photo.url}
+                alt={photo.title}
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
               />
-              
+
               <div className="absolute inset-0 bg-gradient-to-t from-ocean-abyss via-ocean-abyss/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"></div>
 
               <div className="absolute bottom-0 left-0 p-8 md:p-12">
