@@ -19,6 +19,9 @@ export default function Navbar() {
   // Rotate the ship wheel based on scroll
   const wheelRotation = useTransform(scrollY, [0, 1000], [0, 360], { clamp: false });
 
+  // Detect if current page has a light theme by default at the top
+  const isLightBody = ["/about", "/contact", "/content"].includes(location.pathname);
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -31,17 +34,26 @@ export default function Navbar() {
     setIsMobileOpen(false);
   }, [location.pathname]);
 
+  // Styles based on scroll and page theme
+  const navStyle = {
+    text: isScrolled ? "text-white" : (isLightBody ? "text-ocean-abyss" : "text-white"),
+    subText: isScrolled ? "text-white/80" : (isLightBody ? "text-ocean-deep/70" : "text-white/80"),
+    border: isScrolled ? "border-white/20" : (isLightBody ? "border-ocean-abyss/10" : "border-white/10"),
+    bg: isScrolled ? "bg-ocean-abyss/85 backdrop-blur-xl" : (isLightBody ? "bg-white/40 backdrop-blur-md" : "bg-transparent"),
+    logoGlow: isScrolled ? "drop-shadow-[0_0_8px_rgba(135,206,235,0.8)]" : (isLightBody ? "drop-shadow-none" : "drop-shadow-[0_0_8px_rgba(135,206,235,0.8)]")
+  };
+
   return (
     <>
       {/* Container for the floating pill navbar */}
-      <div className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 w-full pointer-events-none mt-4 md:mt-6 transition-all duration-500">
+      <div className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 w-full pointer-events-none mt-4 md:mt-6 transition-all duration-500 font-sans">
         <motion.nav
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, type: "spring", stiffness: 100, damping: 20 }}
-          className={`pointer-events-auto transition-all duration-700 rounded-full ${isScrolled
-              ? "bg-ocean-abyss/85 backdrop-blur-xl shadow-[0_8px_32px_rgba(6,59,82,0.6)] border border-ocean-sky/20 py-3 px-6 md:px-8 w-full max-w-5xl"
-              : "bg-transparent py-4 px-6 md:px-10 w-full max-w-7xl"
+          className={`pointer-events-auto transition-all duration-700 rounded-full border ${isScrolled
+              ? `${navStyle.bg} shadow-[0_8px_32px_rgba(6,59,82,0.6)] ${navStyle.border} py-3 px-6 md:px-8 w-full max-w-5xl`
+              : `${navStyle.bg} ${navStyle.border} py-4 px-6 md:px-10 w-full max-w-7xl`
             }`}
         >
           <div className="flex items-center justify-between">
@@ -50,17 +62,17 @@ export default function Navbar() {
               <div className="relative w-11 h-11 rounded-full bg-gradient-to-br from-ocean-sky/10 to-ocean-surface/10 border border-ocean-sky/30 shadow-lg shadow-ocean-sky/10 flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 bg-ocean-sky/20 scale-0 group-hover:scale-100 transition-transform duration-500 rounded-full origin-center" />
                 <motion.div style={{ rotate: wheelRotation }}>
-                  <ShipWheel strokeWidth={1.5} className="w-6 h-6 text-ocean-sky drop-shadow-[0_0_8px_rgba(135,206,235,0.8)] transition-transform duration-300 group-hover:scale-110" />
+                  <ShipWheel strokeWidth={1.5} className={`w-6 h-6 text-ocean-sky ${navStyle.logoGlow} transition-transform duration-300 group-hover:scale-110`} />
                 </motion.div>
               </div>
-              <span className={`text-2xl font-bold font-display tracking-wide transition-colors duration-300 ${isScrolled ? "text-white" : "text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]"}`}>
+              <span className={`text-2xl font-bold font-display tracking-wide transition-colors duration-300 ${navStyle.text} ${!isScrolled && !isLightBody ? "drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]" : ""}`}>
                 Ocean<span className="text-ocean-sky">Guard</span>
               </span>
             </Link>
-
+...
             {/* Desktop Nav */}
             <div className="hidden md:flex items-center gap-1 md:gap-3 lg:gap-5">
-              <div className="flex items-center bg-white/5 rounded-full p-1.5 border border-white/10 backdrop-blur-sm shadow-inner">
+              <div className={`flex items-center rounded-full p-1.5 border backdrop-blur-sm transition-colors duration-300 ${isScrolled ? "bg-white/5 border-white/10" : (isLightBody ? "bg-ocean-abyss/5 border-ocean-abyss/10" : "bg-white/5 border-white/10")}`}>
                 {navLinks.map((link) => {
                   const isActive = location.pathname === link.path;
                   return (
@@ -69,7 +81,7 @@ export default function Navbar() {
                       to={link.path}
                       className={`relative px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${isActive
                           ? "text-ocean-abyss bg-ocean-sky shadow-[0_0_15px_rgba(135,206,235,0.5)]"
-                          : "text-white/80 hover:text-white hover:bg-white/10"
+                          : `${navStyle.subText} hover:${navStyle.text} hover:bg-white/10`
                         }`}
                     >
                       {link.name}
@@ -98,7 +110,7 @@ export default function Navbar() {
             {/* Mobile Hamburger */}
             <button
               onClick={() => setIsMobileOpen(!isMobileOpen)}
-              className="md:hidden w-11 h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-white/15 transition-colors shadow-lg backdrop-blur-md"
+              className={`md:hidden w-11 h-11 rounded-full border flex items-center justify-center transition-colors shadow-lg backdrop-blur-md ${isScrolled ? "bg-white/5 border-white/10 text-white" : (isLightBody ? "bg-ocean-abyss/5 border-ocean-abyss/10 text-ocean-abyss" : "bg-white/5 border-white/10 text-white")}`}
               aria-label="Toggle menu"
             >
               <AnimatePresence mode="wait">

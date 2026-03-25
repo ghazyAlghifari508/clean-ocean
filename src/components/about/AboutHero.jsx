@@ -1,217 +1,159 @@
-import { useState } from "react";
 import { motion } from "motion/react";
-import { Turtle } from "../home/OceanCreatures";
-import { Anchor, Info } from "lucide-react";
-
-/* Fish that dart away when cursor approaches */
-function InteractiveFishSVG({ x, y, size = 40, hue = 0, direction = "right" }) {
-  const [scared, setScared] = useState(false);
-  const isRight = direction === "right";
-  return (
-    <motion.div
-      className="absolute pointer-events-auto cursor-pointer"
-      style={{ left: x, top: y }}
-      onHoverStart={() => setScared(true)}
-      onHoverEnd={() => setScared(false)}
-      animate={
-        scared
-          ? {
-            x: isRight ? 120 : -120,
-            y: -30,
-            scale: 1.15,
-            transition: { type: "spring", stiffness: 200, damping: 15 },
-          }
-          : {
-            x: 0,
-            y: 0,
-            scale: 1,
-            transition: { duration: 2.5, type: "spring" },
-          }
-      }
-    >
-      <svg
-        width={size}
-        height={size * 0.6}
-        viewBox="0 0 40 24"
-        fill="none"
-        style={{
-          transform: isRight ? "scaleX(1)" : "scaleX(-1)",
-          filter: `hue-rotate(${hue}deg)`,
-        }}
-      >
-        <ellipse cx="18" cy="12" rx="14" ry="9" fill="#FFD700" opacity="0.8" />
-        <polygon points="32,12 40,5 40,19" fill="#FFA500" opacity="0.7" />
-        <circle cx="11" cy="10" r="2" fill="#fff" opacity="0.9" />
-        <circle cx="11" cy="10" r="1" fill="#063B52" />
-        <path d="M22,8 Q26,12 22,16" stroke="#E8A000" strokeWidth="1" fill="none" opacity="0.5" />
-      </svg>
-    </motion.div>
-  );
-}
+import { ArrowRight } from "lucide-react";
 
 export default function AboutHero() {
   return (
-    <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
-      {/* Animated underwater gradient background */}
-      <div className="absolute inset-0 z-0">
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(180deg, #0ea5e9 0%, #0369a1 25%, #0C5F7F 55%, #063B52 100%)",
-          }}
-        />
-
-        {/* Light rays */}
-        <div className="absolute top-0 inset-x-0 h-[80%] flex justify-center gap-10 opacity-30">
-          {[...Array(6)].map((_, i) => (
-            <div
-              key={i}
-              className="w-32 h-[120%]"
-              style={{
-                background:
-                  "linear-gradient(180deg, rgba(255,255,255,0.4) 0%, transparent 100%)",
-                transform: `rotate(${-15 + i * 6}deg) translateY(-10%)`,
-                transformOrigin: "top center",
-                filter: "blur(10px)",
-              }}
-            />
-          ))}
-        </div>
-
-        {/* Floating particles / plankton */}
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full bg-white/30"
-            style={{
-              width: 2 + (i % 4),
-              height: 2 + (i % 4),
-              left: `${5 + (i * 4.7) % 90}%`,
-              top: `${10 + (i * 7.3) % 80}%`,
-            }}
-            animate={{
-              y: [0, -20 - (i % 3) * 10, 0],
-              opacity: [0.2, 0.7, 0.2],
-            }}
-            transition={{
-              duration: 3 + (i % 4),
-              repeat: Infinity,
-              delay: (i * 0.5) % 4,
-            }}
-          />
-        ))}
-
-        {/* Animated SVG coral reef silhouettes at bottom */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg
-            viewBox="0 0 1440 200"
-            className="w-full h-28 md:h-40"
-            preserveAspectRatio="none"
-            fill="none"
+    <section className="relative w-full h-[85vh] md:h-screen min-h-[600px] overflow-hidden flex flex-col bg-ocean-sky/10">
+      
+      {/* Top Half: Text Content (Horizontal Split Layout as per aocean.png) */}
+      <div className="flex-1 w-full flex flex-col justify-end pb-12 md:pb-24 pt-32">
+        <div className="container mx-auto px-6 lg:px-16 flex flex-col md:flex-row items-end justify-between gap-10 md:gap-20">
+          
+          {/* Left: Title */}
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="w-full md:w-1/2"
           >
-            <path
-              d="M0,180 Q50,120 100,140 Q150,80 220,130 Q280,70 350,120 Q400,90 450,110 Q520,60 600,100 Q670,70 750,120 Q820,80 900,110 Q960,50 1040,100 Q1100,80 1180,130 Q1250,70 1320,110 Q1380,90 1440,120 L1440,200 L0,200Z"
-              fill="#0C5F7F"
-              opacity="0.5"
-            />
-            <path
-              d="M0,200 Q80,150 160,170 Q240,130 320,160 Q380,120 450,150 Q530,100 620,140 Q700,110 780,150 Q860,120 940,145 Q1020,100 1120,140 Q1200,120 1280,155 Q1360,130 1440,160 L1440,200 L0,200Z"
-              fill="#063B52"
-            />
-          </svg>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-display font-black text-ocean-abyss leading-[1.05] tracking-tight uppercase">
+              Kami Percaya <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-ocean-deep to-ocean-surface">
+                Lautan Bisa
+              </span> <br />
+              Bernapas Kembali
+            </h1>
+          </motion.div>
+
+          {/* Right: Description & CTA */}
+          <motion.div 
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="w-full md:w-1/2 flex flex-col md:items-end text-left md:text-right"
+          >
+            <p className="text-ocean-deep font-sans text-lg md:text-xl max-w-lg mb-8 leading-relaxed">
+              OceanGuard lahir dari satu keprihatinan: melihat lautan biru kita tercekik 
+              oleh sampah plastik. Kami mengemas edukasi menjadi pengalaman interaktif 
+              agar setiap orang sadar bahwa perubahan sekecil apa pun berdampak besar.
+            </p>
+            
+            <button 
+              onClick={() => {
+                document.getElementById('about-vision')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="group flex items-center justify-center gap-3 bg-ocean-abyss text-white px-8 py-3.5 rounded-full shadow-lg hover:shadow-xl hover:shadow-ocean-abyss/20 hover:-translate-y-1 transition-all duration-300 w-fit"
+            >
+              <span className="font-bold tracking-wide">Misi Kami</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </motion.div>
+
         </div>
-
-        {/* Interactive fish that dart away on hover */}
-        <InteractiveFishSVG x="8%" y="28%" size={42} hue={0} direction="right" />
-        <InteractiveFishSVG x="85%" y="45%" size={35} hue={180} direction="left" />
-        <InteractiveFishSVG x="70%" y="25%" size={28} hue={90} direction="left" />
-
-        {/* Turtle swimming */}
-        <motion.div
-          className="absolute bottom-[20%] right-[10%] opacity-60"
-          animate={{ x: [-10, 10, -10], y: [-5, 5, -5] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <Turtle size={100} />
-        </motion.div>
-
-        {/* Rising bubbles */}
-        {[...Array(8)].map((_, i) => (
-          <motion.div
-            key={`bub-${i}`}
-            className="absolute rounded-full"
-            style={{
-              width: 6 + (i % 4) * 4,
-              height: 6 + (i % 4) * 4,
-              left: `${8 + (i * 12) % 85}%`,
-              bottom: "-5%",
-              background:
-                "radial-gradient(circle at 30% 30%, rgba(255,255,255,0.7), rgba(255,255,255,0.1))",
-              boxShadow: "inset 0 0 6px rgba(255,255,255,0.4)",
-            }}
-            animate={{
-              y: [0, -500 - i * 60],
-              opacity: [0.5, 0],
-              scale: [0.5, 1.2],
-            }}
-            transition={{
-              duration: 8 + (i % 3) * 3,
-              repeat: Infinity,
-              delay: i * 1.5,
-              ease: "easeIn",
-            }}
-          />
-        ))}
       </div>
 
-      {/* Text content — extra pt for navbar clearance */}
-      <div className="relative z-10 container-custom text-center pt-36 md:pt-40 pb-20">
-        <motion.span
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/10 border border-white/20 text-ocean-foam text-sm font-medium backdrop-blur-md mb-6 shadow-lg shadow-ocean-mid/20"
-        >
-          <Info className="w-4 h-4 text-ocean-sky" />
-          Tentang Kami
-        </motion.span>
+      {/* Bottom Half: Layered Ocean Illustration (Parallax & Animated) */}
+      <div className="relative w-full h-[50vh] md:h-[60vh] mt-auto overflow-hidden bg-gradient-to-b from-transparent to-ocean-abyss/10 flex flex-col justify-end">
+        
+        {/* Fill the bottom-most pixels explicitly with ocean-abyss to prevent any 1px gap */}
+        <div className="absolute bottom-0 left-0 w-full h-[5vh] bg-ocean-abyss z-0"></div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-lg"
+        {/* Layer 1: Back Wave (Light Blue) */}
+        <motion.div 
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1, delay: 0.4 }}
+          className="absolute bottom-0 w-[200%] md:w-full h-full text-ocean-surface/60 flex items-end"
         >
-          Mengenal{" "}
-          <span className="text-gradient">OceanGuard</span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.4 }}
-          className="text-white/70 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed"
-        >
-          Platform edukasi digital yang berdedikasi untuk meningkatkan kesadaran
-          tentang pentingnya menjaga ekosistem laut dari ancaman sampah.
-        </motion.p>
-
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
-          className="mt-14"
-        >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-6 h-10 rounded-full border-2 border-white/30 mx-auto flex items-start justify-center pt-2"
-          >
-            <motion.div className="w-1.5 h-3 rounded-full bg-white/50" />
-          </motion.div>
+          <svg viewBox="0 0 1440 320" preserveAspectRatio="none" className="w-full h-[70%] fill-current mb-[-2px]" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,160L48,176C96,192,192,224,288,218.7C384,213,480,171,576,170.7C672,171,768,213,864,229.3C960,245,1056,235,1152,208C1248,181,1344,139,1392,117.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+          </svg>
         </motion.div>
+
+        {/* Fauna Silhouettes & Details in Back Layer */}
+        <motion.div 
+          animate={{ x: ["-10%", "110%"] }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          className="absolute top-[30%] left-0 opacity-40 z-10"
+        >
+           {/* Abstract small fish silhouette using SVG */}
+           <svg width="40" height="20" viewBox="0 0 40 20" fill="currentColor" className="text-ocean-deep">
+             <path d="M35 10C35 15 25 20 15 20C5 20 0 15 0 10C0 5 5 0 15 0C25 0 35 5 35 10ZM40 5C38 8 38 12 40 15L32 10L40 5Z" />
+           </svg>
+        </motion.div>
+
+        {/* Layer 2: Middle Wave (Deep Blue) */}
+        <motion.div 
+          initial={{ y: 80, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="absolute bottom-0 w-[200%] md:w-full h-full text-ocean-deep z-20 flex items-end"
+        >
+          <svg viewBox="0 0 1440 320" preserveAspectRatio="none" className="w-full h-[55%] fill-current mb-[-2px]" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,96L60,117.3C120,139,240,181,360,192C480,203,600,181,720,154.7C840,128,960,96,1080,96C1200,96,1320,128,1380,144L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+          </svg>
+        </motion.div>
+
+        {/* Abstract Turtle Silhouette in Middle Layer */}
+        <motion.div 
+          animate={{ y: [0, -15, 0], rotate: [0, -5, 0] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-[20%] right-[15%] md:right-[25%] opacity-60 z-20 text-ocean-abyss"
+        >
+          <svg width="80" height="40" viewBox="0 0 80 40" fill="currentColor">
+            <path d="M30 15C30 5 50 5 60 15C70 15 75 25 70 30C65 35 55 35 45 35C35 35 25 35 20 30C15 25 10 20 15 15C20 10 30 15 30 15ZM60 15C65 10 75 10 80 15C75 20 65 20 60 15ZM20 30C15 35 5 35 0 30C5 25 15 25 20 30Z" />
+          </svg>
+        </motion.div>
+
+        {/* Layer 3: Front Wave (Abyss - matches next section) */}
+        <motion.div 
+          initial={{ y: 100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1, delay: 0.6 }}
+          className="absolute bottom-0 w-full h-full text-ocean-abyss z-30 flex items-end"
+        >
+          <svg viewBox="0 0 1440 320" preserveAspectRatio="none" className="w-full h-[40%] fill-current mb-[-2px]" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,224C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+          </svg>
+          
+          {/* Seaweed abstract silhouettes growing from bottom */}
+          <div className="absolute bottom-[-5px] right-[5%] flex items-end gap-1 opacity-80 mix-blend-multiply">
+            <motion.div animate={{ skewX: [0, 5, 0] }} transition={{ duration: 3, repeat: Infinity }} className="w-2 h-16 md:h-24 bg-ocean-abyss rounded-t-full origin-bottom"></motion.div>
+            <motion.div animate={{ skewX: [0, -8, 0] }} transition={{ duration: 4, repeat: Infinity }} className="w-3 h-20 md:h-32 bg-ocean-abyss rounded-t-full origin-bottom"></motion.div>
+            <motion.div animate={{ skewX: [0, 6, 0] }} transition={{ duration: 3.5, repeat: Infinity }} className="w-2 h-12 md:h-16 bg-ocean-abyss rounded-t-full origin-bottom"></motion.div>
+          </div>
+          <div className="absolute bottom-[-5px] left-[5%] flex items-end gap-1 opacity-80 mix-blend-multiply">
+            <motion.div animate={{ skewX: [0, -5, 0] }} transition={{ duration: 4, repeat: Infinity }} className="w-4 h-20 md:h-32 bg-ocean-abyss rounded-t-full origin-bottom"></motion.div>
+            <motion.div animate={{ skewX: [0, 8, 0] }} transition={{ duration: 5, repeat: Infinity }} className="w-2 h-14 md:h-20 bg-ocean-abyss rounded-t-full origin-bottom"></motion.div>
+          </div>
+
+        </motion.div>
+
+        {/* Ambient Bubbles crossing all layers */}
+        {[...Array(6)].map((_, i) => (
+          <motion.div
+            key={`bubble-${i}`}
+            initial={{ y: "150%", opacity: 0 }}
+            animate={{ 
+              y: "-100%", 
+              opacity: [0, 0.4, 0],
+              x: Math.sin(i) * 30
+            }}
+            transition={{
+              duration: 8 + Math.random() * 5,
+              repeat: Infinity,
+              ease: "linear",
+              delay: Math.random() * 3
+            }}
+            className="absolute bottom-0 rounded-full border border-white/50 backdrop-blur-sm z-40"
+            style={{
+              left: `${15 + Math.random() * 70}%`,
+              width: `${Math.random() * 20 + 10}px`,
+              height: `${Math.random() * 20 + 10}px`,
+            }}
+          />
+        ))}
+
       </div>
     </section>
   );
