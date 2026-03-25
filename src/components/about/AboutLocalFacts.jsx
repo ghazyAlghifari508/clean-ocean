@@ -14,10 +14,10 @@ function AnimatedCounter({ end, duration = 2, suffix = "" }) {
       if (!startTime) startTime = timestamp;
       const progress = timestamp - startTime;
       const progressRatio = Math.min(progress / (duration * 1000), 1);
-      
+
       // Easing function (easeOutQuart)
       const easeOut = 1 - Math.pow(1 - progressRatio, 4);
-      
+
       setCount(Math.floor(easeOut * end));
 
       if (progressRatio < 1) {
@@ -39,10 +39,10 @@ export default function AboutLocalFacts() {
 
   return (
     <section className="relative w-full py-32 overflow-hidden bg-ocean-abyss">
-      
+
       {/* Background Parallax Image */}
-      <div 
-        className="absolute inset-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1621451537084-482c73073e0f?auto=format&fit=crop&q=80')] bg-cover bg-center bg-fixed"
+      <div
+        className="absolute inset-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&q=80')] bg-cover bg-center bg-fixed"
       ></div>
 
       {/* Dark overlay for text readability */}
@@ -50,8 +50,8 @@ export default function AboutLocalFacts() {
       <div className="absolute inset-0 bg-gradient-to-t from-ocean-abyss via-transparent to-ocean-abyss"></div>
 
       <div className="container mx-auto px-6 lg:px-16 relative z-10">
-        
-        <motion.div 
+
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           onViewportEnter={() => setInView(true)}
@@ -66,15 +66,15 @@ export default function AboutLocalFacts() {
             Realita di Halaman Belakang Kita
           </h2>
           <p className="text-white/70 max-w-2xl mx-auto font-sans text-lg">
-            Mengapa OceanGuard lahir di sini? Karena krisis ini nyata, dekat, dan mengancam 
+            Mengapa OceanGuard lahir di sini? Karena krisis ini nyata, dekat, dan mengancam
             seluruh keindahan nusantara yang membentang dari Sabang hingga Merauke.
           </p>
         </motion.div>
 
         {/* Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -89,7 +89,7 @@ export default function AboutLocalFacts() {
             <p className="text-white/70 text-sm">Indonesia adalah penyumbang sampah plastik ke laut terbesar kedua di dunia setelah Tiongkok.</p>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}

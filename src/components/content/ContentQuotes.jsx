@@ -56,10 +56,10 @@ export default function ContentQuotes() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="text-3xl md:text-5xl lg:text-6xl font-display font-medium text-white max-w-4xl leading-[1.3] md:leading-[1.4] mb-8"
+          className="text-3xl md:text-4xl lg:text-5xl font-display font-medium text-white max-w-4xl leading-[1.4] md:leading-[1.6] mb-8"
         >
-          "Kita tidak mewarisi lautan dari nenek moyang kita,<br className="hidden md:block" />
-          <span className="text-ocean-sky italic font-light font-serif tracking-widest leading-[1.5]"> kita meminjamnya dari anak cucu kita.</span>"
+          &ldquo;Kita tidak mewarisi lautan dari nenek moyang kita,<br className="hidden md:block" />
+          <span className="text-ocean-sky text-4xl md:text-5xl lg:text-6xl italic block mt-2 drop-shadow-md">kita meminjamnya dari anak cucu kita.</span>&rdquo;
         </motion.h2>
         
         <motion.div

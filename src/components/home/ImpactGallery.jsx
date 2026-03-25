@@ -4,25 +4,25 @@ import { ArrowRight } from "lucide-react";
 export default function ImpactGallery() {
   const images = [
     {
-      src: "https://images.unsplash.com/photo-1621451537084-482c73073e0f?auto=format&fit=crop&q=80",
+      src: "https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&q=80&w=800",
       title: "Mikroplastik",
       desc: "Invasi tak kasat mata",
       className: "col-span-1 border-ocean-abyss/10"
     },
     {
-      src: "https://images.unsplash.com/photo-1564419320461-6870880221ad?auto=format&fit=crop&q=80",
+      src: "https://images.unsplash.com/photo-1591025207163-942350e47db2?auto=format&fit=crop&q=80&w=1200",
       title: "Jaring Hantu",
       desc: "Perangkap abadi biota",
       className: "col-span-1 md:col-span-2 border-ocean-abyss/10"
     },
     {
-      src: "https://images.unsplash.com/photo-1618477461853-cf6ed80fbfc9?auto=format&fit=crop&q=80",
+      src: "https://images.unsplash.com/photo-1546026423-cc4642628d2b?auto=format&fit=crop&q=80&w=1200",
       title: "Bleaching Karang",
       desc: "Pudar oleh suhu laut",
       className: "col-span-1 md:col-span-2 min-h-[300px] border-ocean-abyss/10"
     },
     {
-      src: "https://images.unsplash.com/photo-1526951521990-620dc14c214b?auto=format&fit=crop&q=80",
+      src: "https://images.unsplash.com/photo-1526951521990-620dc14c214b?auto=format&fit=crop&q=80&w=800",
       title: "Tumpahan Minyak",
       desc: "Polusi mematikan",
       className: "col-span-1 border-ocean-abyss/10"
@@ -33,7 +33,7 @@ export default function ImpactGallery() {
     <section className="py-24 bg-white relative overflow-hidden">
       <div className="container mx-auto px-6 lg:px-16">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -47,7 +47,7 @@ export default function ImpactGallery() {
               Realita di Bawah Permukaan
             </h2>
           </motion.div>
-          <motion.button 
+          <motion.button
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -69,13 +69,14 @@ export default function ImpactGallery() {
               className={`group relative rounded-xl overflow-hidden bg-wave-light border ${img.className}`}
             >
               <div className="absolute inset-0 bg-ocean-ink/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
-              <img 
-                src={img.src} 
-                alt={img.title} 
+              <img
+                src={img.src}
+                alt={img.title}
+                loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ocean-abyss/90 via-ocean-abyss/20 to-transparent z-10"></div>
-              
+
               <div className="absolute bottom-0 left-0 p-8 z-20 w-full">
                 <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                   <p className="text-ocean-sky text-sm font-semibold uppercase tracking-wider mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">

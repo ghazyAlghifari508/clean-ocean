@@ -26,7 +26,7 @@ export default function ContentCTA() {
               Sudah Belajar? <br />
               <span className="text-ocean-surface">Saatnya Beraksi.</span>
             </h2>
-            
+
             <p className="text-ocean-deep/70 text-lg md:text-xl font-sans max-w-xl mx-auto mb-12">
               Teori tidak akan membersihkan lautan. Rasakan dampak langsung dari tindakanmu melalui simulasi interaktif kami.
             </p>

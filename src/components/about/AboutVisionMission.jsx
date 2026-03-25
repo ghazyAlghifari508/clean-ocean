@@ -4,16 +4,16 @@ import { Compass, Eye } from "lucide-react";
 export default function AboutVisionMission() {
   return (
     <section id="about-vision" className="py-24 md:py-32 bg-white relative overflow-hidden">
-      
+
       {/* Huge Background Watermark Typography */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15vw] font-display font-black text-ocean-sky/5 whitespace-nowrap pointer-events-none select-none">
         OCEAN GUARD
       </div>
 
       <div className="container mx-auto px-6 lg:px-16 flex flex-col md:flex-row gap-12 lg:gap-24 relative z-10">
-        
+
         {/* Mission */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -27,14 +27,14 @@ export default function AboutVisionMission() {
             Misi Kami
           </h2>
           <p className="text-ocean-deep/80 font-sans text-lg md:text-xl leading-relaxed">
-            Mengedukasi masyarakat tentang darurat sampah laut melalui 
-            <strong> pengalaman simulasi interaktif</strong> yang menyenangkan, mudah dipahami, 
+            Mengedukasi masyarakat tentang darurat sampah laut melalui
+            <strong> pengalaman simulasi interaktif</strong> yang menyenangkan, mudah dipahami,
             dan menggugah empati nyata terhadap ekosistem.
           </p>
         </motion.div>
 
         {/* Vision */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -48,7 +48,7 @@ export default function AboutVisionMission() {
             Visi Masa Depan
           </h2>
           <p className="text-white/80 font-sans text-lg md:text-xl leading-relaxed">
-            Menciptakan generasi baru yang sadar akan jejak lingkungan mereka, 
+            Menciptakan generasi baru yang sadar akan jejak lingkungan mereka,
             serta aktif bergerak bersama menjaga kelestarian laut bagi kehidupan makhluk di dalamnya.
           </p>
         </motion.div>
