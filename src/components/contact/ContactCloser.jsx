@@ -27,7 +27,7 @@ export default function ContactCloser() {
 
       <div className="container mx-auto px-6 lg:px-16 relative z-10 text-center">
         <motion.div style={{ scale, opacity }}>
-          <h2 className="text-4xl md:text-6xl lg:text-[84px] font-display font-black text-white leading-[1.1] max-w-5xl mx-auto italic">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-display font-black text-white leading-[1.1] max-w-5xl mx-auto italic">
             "Laut tidak bisa berbicara — <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-ocean-sky to-ocean-surface">
               tapi kita bisa bersuara untuknya.

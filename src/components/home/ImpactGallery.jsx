@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 export default function ImpactGallery() {
   const images = [
     {
-      src: "https://images.unsplash.com/photo-1621451537084-482c73073e0f?auto=format&fit=crop&q=80",
+      src: "https://images.unsplash.com/photo-1616897597151-2ea3954477ca?auto=format&fit=crop&q=80",
       title: "Mikroplastik",
       desc: "Invasi tak kasat mata",
       className: "col-span-1 border-ocean-abyss/10"
@@ -16,7 +16,7 @@ export default function ImpactGallery() {
       className: "col-span-1 md:col-span-2 border-ocean-abyss/10"
     },
     {
-      src: "https://images.unsplash.com/photo-1618477461853-cf6ed80fbfc9?auto=format&fit=crop&q=80",
+      src: "https://images.unsplash.com/photo-1617142108319-66c7ab469b41?auto=format&fit=crop&q=80",
       title: "Bleaching Karang",
       desc: "Pudar oleh suhu laut",
       className: "col-span-1 md:col-span-2 min-h-[300px] border-ocean-abyss/10"

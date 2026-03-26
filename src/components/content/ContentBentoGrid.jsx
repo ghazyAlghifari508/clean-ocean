@@ -11,7 +11,7 @@ const CONTENT_DATA = [
     category: "Fakta",
     type: "article",
     desc: "Plastik tidak pernah benar-benar terurai; mereka hanya pecah menjadi partikel mikro tak kasat mata.",
-    image: "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1616897597151-2ea3954477ca?w=800&q=80",
     size: "large", // spans 2 cols, 2 rows in bento
     icon: <Info className="w-5 h-5" />,
   },
@@ -29,7 +29,7 @@ const CONTENT_DATA = [
     category: "Dampak",
     type: "article",
     desc: "Pemutihan terumbu karang masif terjadi akibat kenaikan ekstrem suhu laut global.",
-    image: "https://images.unsplash.com/photo-1618477461853-cf6ed80fbfc9?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1617142108319-66c7ab469b41?w=600&q=80",
     size: "medium", // spans 1 col, 2 rows
     icon: <AlertTriangle className="w-5 h-5" />,
   },

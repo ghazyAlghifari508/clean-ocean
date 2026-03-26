@@ -81,7 +81,7 @@ export default function AboutLocalFacts() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="bg-white/10 backdrop-blur-lg border border-white/20 p-8 rounded-3xl text-center group hover:-translate-y-2 transition-transform duration-500"
           >
-            <div className="text-5xl md:text-7xl font-display font-black text-white mb-2 tracking-tighter">
+            <div className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-white mb-2 tracking-tighter">
               #{inView ? <AnimatedCounter end={2} /> : "0"}
             </div>
             <div className="h-1 w-12 bg-ocean-sky mx-auto mb-6 rounded-full group-hover:w-24 transition-all duration-500"></div>
@@ -96,7 +96,7 @@ export default function AboutLocalFacts() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="bg-white/10 backdrop-blur-lg border border-white/20 p-8 rounded-3xl text-center group hover:-translate-y-2 transition-transform duration-500"
           >
-            <div className="text-5xl md:text-7xl font-display font-black text-white mb-2 tracking-tighter">
+            <div className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-white mb-2 tracking-tighter">
               {inView ? <AnimatedCounter end={17} suffix="K+" /> : "0"}
             </div>
             <div className="h-1 w-12 bg-amber-400 mx-auto mb-6 rounded-full group-hover:w-24 transition-all duration-500"></div>

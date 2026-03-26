@@ -14,7 +14,7 @@
   }
 
   body {
-    font-family: "DM Sans", system-ui, sans-serif;
+    font-family: "Inter", system-ui, sans-serif;
     background-color: #063B52;
     color: #ffffff;
     overflow-x: hidden;
@@ -247,4 +247,17 @@
   0% { transform: scale(0.95); opacity: 0.5; }
   50% { transform: scale(1.05); opacity: 0.8; }
   100% { transform: scale(0.95); opacity: 0.5; }
+}
+/* Caustics / Underwater Light Rays */
+@keyframes caustics {
+  0% { transform: translate(-10%, -10%) rotate(0deg) scale(1); opacity: 0.15; }
+  33% { transform: translate(5%, 2%) rotate(2deg) scale(1.1); opacity: 0.25; }
+  66% { transform: translate(-2%, 8%) rotate(-1deg) scale(0.95); opacity: 0.2; }
+  100% { transform: translate(-10%, -10%) rotate(0deg) scale(1); opacity: 0.15; }
+}
+
+.caustics-layer {
+  background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+  mask-image: radial-gradient(circle at center, white, transparent);
+  animation: caustics 12s ease-in-out infinite;
 }

@@ -16,7 +16,7 @@ export default function AboutHero() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="w-full md:w-1/2"
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-display font-black text-ocean-abyss leading-[1.05] tracking-tight uppercase">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-display font-black text-ocean-abyss leading-[1.05] tracking-tight">
               Kami Percaya <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-ocean-deep to-ocean-surface">
                 Lautan Bisa
@@ -70,17 +70,7 @@ export default function AboutHero() {
           </svg>
         </motion.div>
 
-        {/* Fauna Silhouettes & Details in Back Layer */}
-        <motion.div 
-          animate={{ x: ["-10%", "110%"] }}
-          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-          className="absolute top-[30%] left-0 opacity-40 z-10"
-        >
-           {/* Abstract small fish silhouette using SVG */}
-           <svg width="40" height="20" viewBox="0 0 40 20" fill="currentColor" className="text-ocean-deep">
-             <path d="M35 10C35 15 25 20 15 20C5 20 0 15 0 10C0 5 5 0 15 0C25 0 35 5 35 10ZM40 5C38 8 38 12 40 15L32 10L40 5Z" />
-           </svg>
-        </motion.div>
+        {/* Fauna Silhouettes Removed */}
 
         {/* Layer 2: Middle Wave (Deep Blue) */}
         <motion.div 
@@ -94,16 +84,7 @@ export default function AboutHero() {
           </svg>
         </motion.div>
 
-        {/* Abstract Turtle Silhouette in Middle Layer */}
-        <motion.div 
-          animate={{ y: [0, -15, 0], rotate: [0, -5, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-[20%] right-[15%] md:right-[25%] opacity-60 z-20 text-ocean-abyss"
-        >
-          <svg width="80" height="40" viewBox="0 0 80 40" fill="currentColor">
-            <path d="M30 15C30 5 50 5 60 15C70 15 75 25 70 30C65 35 55 35 45 35C35 35 25 35 20 30C15 25 10 20 15 15C20 10 30 15 30 15ZM60 15C65 10 75 10 80 15C75 20 65 20 60 15ZM20 30C15 35 5 35 0 30C5 25 15 25 20 30Z" />
-          </svg>
-        </motion.div>
+        {/* Turtle Silhouette Removed */}
 
         {/* Layer 3: Front Wave (Abyss - matches next section) */}
         <motion.div 
@@ -116,43 +97,11 @@ export default function AboutHero() {
             <path d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,224C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
           </svg>
           
-          {/* Seaweed abstract silhouettes growing from bottom */}
-          <div className="absolute bottom-[-5px] right-[5%] flex items-end gap-1 opacity-80 mix-blend-multiply">
-            <motion.div animate={{ skewX: [0, 5, 0] }} transition={{ duration: 3, repeat: Infinity }} className="w-2 h-16 md:h-24 bg-ocean-abyss rounded-t-full origin-bottom"></motion.div>
-            <motion.div animate={{ skewX: [0, -8, 0] }} transition={{ duration: 4, repeat: Infinity }} className="w-3 h-20 md:h-32 bg-ocean-abyss rounded-t-full origin-bottom"></motion.div>
-            <motion.div animate={{ skewX: [0, 6, 0] }} transition={{ duration: 3.5, repeat: Infinity }} className="w-2 h-12 md:h-16 bg-ocean-abyss rounded-t-full origin-bottom"></motion.div>
-          </div>
-          <div className="absolute bottom-[-5px] left-[5%] flex items-end gap-1 opacity-80 mix-blend-multiply">
-            <motion.div animate={{ skewX: [0, -5, 0] }} transition={{ duration: 4, repeat: Infinity }} className="w-4 h-20 md:h-32 bg-ocean-abyss rounded-t-full origin-bottom"></motion.div>
-            <motion.div animate={{ skewX: [0, 8, 0] }} transition={{ duration: 5, repeat: Infinity }} className="w-2 h-14 md:h-20 bg-ocean-abyss rounded-t-full origin-bottom"></motion.div>
-          </div>
+
 
         </motion.div>
 
-        {/* Ambient Bubbles crossing all layers */}
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={`bubble-${i}`}
-            initial={{ y: "150%", opacity: 0 }}
-            animate={{ 
-              y: "-100%", 
-              opacity: [0, 0.4, 0],
-              x: Math.sin(i) * 30
-            }}
-            transition={{
-              duration: 8 + Math.random() * 5,
-              repeat: Infinity,
-              ease: "linear",
-              delay: Math.random() * 3
-            }}
-            className="absolute bottom-0 rounded-full border border-white/50 backdrop-blur-sm z-40"
-            style={{
-              left: `${15 + Math.random() * 70}%`,
-              width: `${Math.random() * 20 + 10}px`,
-              height: `${Math.random() * 20 + 10}px`,
-            }}
-          />
-        ))}
+        {/* Ambient Bubbles Removed */}
 
       </div>
     </section>

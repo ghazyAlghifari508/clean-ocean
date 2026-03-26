@@ -11,7 +11,7 @@ export default function ContentImpactCards() {
       title: "Mikroplastik",
       subtitle: "Acaman Tak Kasat Mata",
       desc: "Hancur terbawa arus menjadi pecahan kurang dari 5mm, lalu termakan ikan dan masuk ke rantai makanan manusia.",
-      image: "https://images.unsplash.com/photo-1621451537084-482c73073e0f?auto=format&fit=crop&q=80",
+      image: "https://images.unsplash.com/photo-1616897597151-2ea3954477ca?auto=format&fit=crop&q=80",
     },
     {
       title: "Jaring Hantu",
@@ -23,7 +23,7 @@ export default function ContentImpactCards() {
       title: "Kehilangan Ekosistem",
       subtitle: "Dampak Jangka Panjang",
       desc: "Pemutihan karang dan penumpukan limbah racun membuat terumbu karang mati, menghilangkan rumah ikan.",
-      image: "https://images.unsplash.com/photo-1618477461853-cf6ed80fbfc9?auto=format&fit=crop&q=80",
+      image: "https://images.unsplash.com/photo-1617142108319-66c7ab469b41?auto=format&fit=crop&q=80",
     }
   ];
 
