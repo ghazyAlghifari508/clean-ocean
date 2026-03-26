@@ -98,39 +98,36 @@ export function SkyBirds() {
 }
 
 // ==========================================
-// PERMUKAAN — Lumba-lumba melompat (REMOVED)
-// ==========================================
-
-// ==========================================
 // BAWAH LAUT — Kelompok ikan
 // ==========================================
-export function OceanFishGroups() {
+export function OceanFishGroups({ isMobile }) {
+  const m = isMobile ? 0.35 : 1;
   return (
     <>
-      {/* Ikan kecil berkelompok gaya blue-silver (Restored) */}
-      <Html position={[-12, -45, -3]} center className="pointer-events-none" zIndexRange={[0, 0]}>
-        <div style={{ width: 220, opacity: 0.85, animation: "swimRightLeft 30s linear infinite" }}>
+      {/* Ikan kecil berkelompok gaya blue-silver */}
+      <Html position={[-12 * m, -45, -3]} center className="pointer-events-none" zIndexRange={[0, 0]}>
+        <div style={{ width: isMobile ? 120 : 220, opacity: 0.85, animation: "swimRightLeft 30s linear infinite" }}>
           <Lottie animationData={banyakIkanAnim} loop />
         </div>
       </Html>
 
       {/* Tambahan ikan kecil berkelompok lainnya */}
-      <Html position={[8, -55, -5]} center className="pointer-events-none" zIndexRange={[0, 0]}>
-        <div style={{ width: 180, opacity: 0.7, animation: "swimLeftRight 35s linear infinite" }}>
+      <Html position={[8 * m, -55, -5]} center className="pointer-events-none" zIndexRange={[0, 0]}>
+        <div style={{ width: isMobile ? 100 : 180, opacity: 0.7, animation: "swimLeftRight 35s linear infinite" }}>
           <Lottie animationData={banyakIkanAnim} loop />
         </div>
       </Html>
 
-      {/* Lion Fish — transisi ke Mesopelagik (Diperbesar Lebih Lanjut) */}
-      <Html position={[6, -120, -3]} center className="pointer-events-none" zIndexRange={[0, 0]}>
-        <div style={{ width: 320, opacity: 0.85, animation: "swimRightLeft 28s linear infinite" }}>
+      {/* Lion Fish — transisi ke Mesopelagik */}
+      <Html position={[6 * m, -120, -3]} center className="pointer-events-none" zIndexRange={[0, 0]}>
+        <div style={{ width: isMobile ? 180 : 320, opacity: 0.85, animation: "swimRightLeft 28s linear infinite" }}>
           <Lottie animationData={lionFishAnim} loop />
         </div>
       </Html>
 
       {/* Tambahan Lion Fish */}
-      <Html position={[-10, -140, -4]} center className="pointer-events-none" zIndexRange={[0, 0]}>
-        <div style={{ width: 280, opacity: 0.8, animation: "swimLeftRight 32s linear infinite" }}>
+      <Html position={[-10 * m, -140, -4]} center className="pointer-events-none" zIndexRange={[0, 0]}>
+        <div style={{ width: isMobile ? 150 : 280, opacity: 0.8, animation: "swimLeftRight 32s linear infinite" }}>
           <Lottie animationData={lionFishAnim} loop />
         </div>
       </Html>
@@ -141,42 +138,43 @@ export function OceanFishGroups() {
 // ==========================================
 // LAUT DALAM — Ubur-ubur, Gurita, Kura-kura
 // ==========================================
-export function DeepSeaCreatures() {
+export function DeepSeaCreatures({ isMobile }) {
+  const m = isMobile ? 0.35 : 1;
   return (
     <>
       {/* Kura-kura — Epipelagik */}
-      <Html position={[-10, -35, -4]} center className="pointer-events-none" zIndexRange={[0, 0]}>
-        <div style={{ width: 180, opacity: 0.85, animation: "swimLeftRight 35s linear infinite" }}>
+      <Html position={[-10 * m, -35, -4]} center className="pointer-events-none" zIndexRange={[0, 0]}>
+        <div style={{ width: isMobile ? 120 : 180, opacity: 0.85, animation: "swimLeftRight 35s linear infinite" }}>
           <Lottie animationData={turtleAnim} loop />
         </div>
       </Html>
 
       {/* Tambahan Kura-kura */}
-      <Html position={[8, -50, -3]} center className="pointer-events-none" zIndexRange={[0, 0]}>
-        <div style={{ width: 160, opacity: 0.75, animation: "swimRightLeft 42s linear infinite" }}>
+      <Html position={[8 * m, -50, -3]} center className="pointer-events-none" zIndexRange={[0, 0]}>
+        <div style={{ width: isMobile ? 100 : 160, opacity: 0.75, animation: "swimRightLeft 42s linear infinite" }}>
           <Lottie animationData={turtleAnim} loop />
         </div>
       </Html>
 
       {/* Sea Turtle Baru — Di dalam laut */}
-      <Html position={[12, -75, -2]} center className="pointer-events-none" zIndexRange={[0, 0]}>
-        <div style={{ width: 220, opacity: 0.9, animation: "swimRightLeft 40s linear infinite" }}>
+      <Html position={[12 * m, -75, -2]} center className="pointer-events-none" zIndexRange={[0, 0]}>
+        <div style={{ width: isMobile ? 140 : 220, opacity: 0.9, animation: "swimRightLeft 40s linear infinite" }}>
           <Lottie animationData={seaTurtleAnim} loop />
         </div>
       </Html>
 
       {/* Tambahan Sea Turtle */}
-      <Html position={[-8, -95, -5]} center className="pointer-events-none" zIndexRange={[0, 0]}>
-        <div style={{ width: 200, opacity: 0.8, animation: "swimLeftRight 45s linear infinite" }}>
+      <Html position={[-8 * m, -95, -5]} center className="pointer-events-none" zIndexRange={[0, 0]}>
+        <div style={{ width: isMobile ? 120 : 200, opacity: 0.8, animation: "swimLeftRight 45s linear infinite" }}>
           <Lottie animationData={seaTurtleAnim} loop />
         </div>
       </Html>
 
-      {/* Ubur-ubur 1 — Mesopelagik (Diperbesar Lebih Lanjut) */}
-      <Html position={[-6, -160, -3]} center className="pointer-events-none" zIndexRange={[0, 0]}>
+      {/* Ubur-ubur 1 — Mesopelagik */}
+      <Html position={[-6 * m, -160, -3]} center className="pointer-events-none" zIndexRange={[0, 0]}>
         <div
           style={{
-            width: 220,
+            width: isMobile ? 140 : 220,
             opacity: 0.8,
             filter: "drop-shadow(0 0 20px rgba(168,85,247,0.7))",
             animation: "jellyfishFloat 4s ease-in-out infinite",
@@ -186,11 +184,11 @@ export function DeepSeaCreatures() {
         </div>
       </Html>
 
-      {/* Ubur-ubur 2 — Mesopelagik bawah (Diperbesar Lebih Lanjut) */}
-      <Html position={[8, -190, -5]} center className="pointer-events-none" zIndexRange={[0, 0]}>
+      {/* Ubur-ubur 2 — Mesopelagik bawah */}
+      <Html position={[8 * m, -190, -5]} center className="pointer-events-none" zIndexRange={[0, 0]}>
         <div
           style={{
-            width: 180,
+            width: isMobile ? 110 : 180,
             opacity: 0.7,
             filter: "drop-shadow(0 0 15px rgba(168,85,247,0.5))",
             animation: "jellyfishFloat 5s ease-in-out 1.5s infinite",
@@ -201,10 +199,10 @@ export function DeepSeaCreatures() {
       </Html>
 
       {/* Tambahan Ubur-ubur 3 */}
-      <Html position={[-12, -220, -4]} center className="pointer-events-none" zIndexRange={[0, 0]}>
+      <Html position={[-12 * m, -220, -4]} center className="pointer-events-none" zIndexRange={[0, 0]}>
         <div
           style={{
-            width: 190,
+            width: isMobile ? 120 : 190,
             opacity: 0.6,
             filter: "drop-shadow(0 0 15px rgba(168,85,247,0.6))",
             animation: "jellyfishFloat 4.5s ease-in-out 0.5s infinite",
@@ -215,10 +213,10 @@ export function DeepSeaCreatures() {
       </Html>
 
       {/* Tambahan Ubur-ubur 4 */}
-      <Html position={[10, -250, -6]} center className="pointer-events-none" zIndexRange={[0, 0]}>
+      <Html position={[10 * m, -250, -6]} center className="pointer-events-none" zIndexRange={[0, 0]}>
         <div
           style={{
-            width: 170,
+            width: isMobile ? 100 : 170,
             opacity: 0.5,
             filter: "drop-shadow(0 0 10px rgba(168,85,247,0.4))",
             animation: "jellyfishFloat 5.5s ease-in-out 1s infinite",
@@ -232,7 +230,7 @@ export function DeepSeaCreatures() {
       <Html position={[0, -280, -3]} center className="pointer-events-none" zIndexRange={[0, 0]}>
         <div
           style={{
-            width: 220,
+            width: isMobile ? 140 : 220,
             opacity: 0.6,
             filter: "drop-shadow(0 0 10px rgba(0,255,255,0.3))",
             animation: "jellyfishFloat 6s ease-in-out infinite",
@@ -243,10 +241,10 @@ export function DeepSeaCreatures() {
       </Html>
 
       {/* Tambahan Gurita */}
-      <Html position={[-8, -320, -4]} center className="pointer-events-none" zIndexRange={[0, 0]}>
+      <Html position={[-8 * m, -320, -4]} center className="pointer-events-none" zIndexRange={[0, 0]}>
         <div
           style={{
-            width: 200,
+            width: isMobile ? 130 : 200,
             opacity: 0.5,
             filter: "drop-shadow(0 0 10px rgba(0,255,255,0.2))",
             animation: "jellyfishFloat 7s ease-in-out 1s infinite",
@@ -262,7 +260,8 @@ export function DeepSeaCreatures() {
 // ==========================================
 // DASAR LAUT — Seaweed, Rock, Vector Hills
 // ==========================================
-export function OceanFloorDecor() {
+export function OceanFloorDecor({ isMobile }) {
+  const m = isMobile ? 0.35 : 1;
   return (
     <>
       {/* ======================================= */}
@@ -306,65 +305,65 @@ export function OceanFloorDecor() {
       {/* ASSET CORAL & ROCK BERSANDAR DI DASAR     */}
       {/* ======================================= */}
       
-      {/* Seaweed cluster kiri — Diatur rapat di poros tengah agar tidak tabrakan dengan batu */}
-      <Html position={[-4, -505.5, 0]} center className="pointer-events-none" zIndexRange={[12, 12]}>
-        <div style={{ width: 60, opacity: 0.8 }}>
+      {/* Seaweed cluster kiri */}
+      <Html position={[-4 * m, -505.5, 0]} center className="pointer-events-none" zIndexRange={[12, 12]}>
+        <div style={{ width: isMobile ? 40 : 60, opacity: 0.8 }}>
           <Lottie animationData={seaweedAnim} loop />
         </div>
       </Html>
 
-      {/* Seaweed cluster tengah — Diatur rapat di poros tengah */}
+      {/* Seaweed cluster tengah */}
       <Html position={[0, -506.5, -2]} center className="pointer-events-none" zIndexRange={[5, 5]}>
-        <div style={{ width: 50, opacity: 0.7 }}>
+        <div style={{ width: isMobile ? 35 : 50, opacity: 0.7 }}>
           <Lottie animationData={seaweedAnim} loop />
         </div>
       </Html>
 
-      {/* Seaweed cluster kanan — Diatur rapat di poros tengah */}
-      <Html position={[4, -504.5, -1]} center className="pointer-events-none" zIndexRange={[12, 12]}>
-        <div style={{ width: 65, opacity: 0.8, transform: "scaleX(-1)" }}>
+      {/* Seaweed cluster kanan */}
+      <Html position={[4 * m, -504.5, -1]} center className="pointer-events-none" zIndexRange={[12, 12]}>
+        <div style={{ width: isMobile ? 45 : 65, opacity: 0.8, transform: "scaleX(-1)" }}>
           <Lottie animationData={seaweedAnim} loop />
         </div>
       </Html>
 
-      {/* Rock kiri — Kembalikan ke posisi x: -16 (Jangan diubah lagi) */}
-      <Html position={[-12, -505, 1]} center className="pointer-events-none" zIndexRange={[15, 15]}>
-        <div style={{ width: 650, opacity: 1 }}>
+      {/* Rock kiri */}
+      <Html position={[-12 * m, -505, 1]} center className="pointer-events-none" zIndexRange={[15, 15]}>
+        <div style={{ width: isMobile ? 350 : 650, opacity: 1 }}>
           <img src={batuNavy} alt="Batu Navy" style={{ width: "100%", filter: "drop-shadow(0 25px 45px rgba(0,0,0,0.7))" }} />
         </div>
       </Html>
 
-      {/* Rock kanan — Digeser lebih ke tengah dan diperbesar sedikit */}
-      <Html position={[12, -504.5, 0]} center className="pointer-events-none" zIndexRange={[15, 15]}>
-        <div style={{ width: 600, opacity: 1, transform: "scaleX(-1)" }}>
+      {/* Rock kanan */}
+      <Html position={[12 * m, -504.5, 0]} center className="pointer-events-none" zIndexRange={[15, 15]}>
+        <div style={{ width: isMobile ? 320 : 600, opacity: 1, transform: "scaleX(-1)" }}>
           <img src={batuNavy} alt="Batu Navy" style={{ width: "100%", filter: "drop-shadow(0 25px 45px rgba(0,0,0,0.7))" }} />
         </div>
       </Html>
 
-      {/* Kepiting 1 — Berada di dasar laut */}
-      <Html position={[-3, -504.5, 3]} center className="pointer-events-none" zIndexRange={[20, 20]}>
-        <div style={{ width: 140, opacity: 0.95 }}>
+      {/* Kepiting 1 */}
+      <Html position={[-3 * m, -504.5, 3]} center className="pointer-events-none" zIndexRange={[20, 20]}>
+        <div style={{ width: isMobile ? 90 : 140, opacity: 0.95 }}>
           <Lottie animationData={crabAnim} loop />
         </div>
       </Html>
 
-      {/* Kepiting 2 — Berada di dasar laut */}
-      <Html position={[3, -504.5, 2]} center className="pointer-events-none" zIndexRange={[20, 20]}>
-        <div style={{ width: 130, opacity: 0.9, transform: "scaleX(-1)" }}>
+      {/* Kepiting 2 */}
+      <Html position={[3 * m, -504.5, 2]} center className="pointer-events-none" zIndexRange={[20, 20]}>
+        <div style={{ width: isMobile ? 80 : 130, opacity: 0.9, transform: "scaleX(-1)" }}>
           <Lottie animationData={crabAnim} loop />
         </div>
       </Html>
 
-      {/* Tanaman Laut Tambahan 1 — Menghiasi area dasar kiri */}
-      <Html position={[-6, -505, 1]} center className="pointer-events-none" zIndexRange={[12, 12]}>
-        <div style={{ width: 90, opacity: 0.85 }}>
+      {/* Tanaman Laut Tambahan 1 */}
+      <Html position={[-6 * m, -505, 1]} center className="pointer-events-none" zIndexRange={[12, 12]}>
+        <div style={{ width: isMobile ? 60 : 90, opacity: 0.85 }}>
           <Lottie animationData={seaPlantAnim} loop />
         </div>
       </Html>
 
-      {/* Tanaman Laut Tambahan 2 — Menghiasi area dasar kanan */}
-      <Html position={[7.5, -505, 1]} center className="pointer-events-none" zIndexRange={[12, 12]}>
-        <div style={{ width: 100, opacity: 0.9, transform: "scaleX(-1)" }}>
+      {/* Tanaman Laut Tambahan 2 */}
+      <Html position={[7.5 * m, -505, 1]} center className="pointer-events-none" zIndexRange={[12, 12]}>
+        <div style={{ width: isMobile ? 70 : 100, opacity: 0.9, transform: "scaleX(-1)" }}>
           <Lottie animationData={seaPlantAnim} loop />
         </div>
       </Html>
@@ -372,11 +371,7 @@ export function OceanFloorDecor() {
   );
 }
 
-// ==========================================
-// SAMPAH LAUT & PENYELAMATAN MAKHLUK
-// ==========================================
-
-export function OceanTrash({ items, onCollect }) {
+export function OceanTrash({ items, onCollect, isMobile }) {
   return (
     <>
       {items.map((item) => (
@@ -384,14 +379,20 @@ export function OceanTrash({ items, onCollect }) {
           key={item.id} 
           item={item} 
           onCollect={() => onCollect(item.id)} 
+          isMobile={isMobile}
         />
       ))}
     </>
   );
 }
 
-function TrashCollectionPoint({ item, onCollect }) {
+function TrashCollectionPoint({ item, onCollect, isMobile }) {
   const { type, pos, size, rot, isCollected, trapped } = item;
+  
+  // Coordinate squeezing multiplier: 0.35 for mobile
+  const effectiveX = isMobile ? pos[0] * 0.35 : pos[0];
+  const effectivePos = [effectiveX, pos[1], pos[2]];
+  const effectiveSize = isMobile ? size * 0.7 : size;
 
   const getCreatureAnim = (creature) => {
     switch(creature) {
@@ -405,29 +406,31 @@ function TrashCollectionPoint({ item, onCollect }) {
   };
 
   const getCreatureWidth = (creature) => {
-    switch(creature) {
-      case 'fish': return 140;
-      case 'jellyfish': return 160;
-      case 'lionfish': return 220;
-      case 'turtle': return 150;
-      case 'octopus': return 200;
-      default: return 140;
-    }
+    const baseWidth = (() => {
+      switch(creature) {
+        case 'fish': return 140;
+        case 'jellyfish': return 160;
+        case 'lionfish': return 220;
+        case 'turtle': return 150;
+        case 'octopus': return 200;
+        default: return 140;
+      }
+    })();
+    return isMobile ? baseWidth * 0.75 : baseWidth;
   };
 
   return (
-    <Html position={pos} center zIndexRange={isCollected ? [0, 0] : [10, 10]}>
+    <Html position={effectivePos} center zIndexRange={isCollected ? [0, 0] : [10, 10]}>
       <div
         style={{
           position: "relative",
-          width: size * 2.5,
-          minHeight: size * 1.5,
+          width: effectiveSize * 2.5,
+          minHeight: effectiveSize * 1.5,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
         }}
       >
-        {/* MAKHLUK YANG TERJEBAK (Jika ada) */}
         {trapped && (
           <motion.div
             animate={isCollected 
@@ -450,7 +453,6 @@ function TrashCollectionPoint({ item, onCollect }) {
           </motion.div>
         )}
 
-        {/* OVERLAY SAMPAH (Interaktif jika belum dikumpulkan) */}
         <AnimatePresence>
           {!isCollected && (
             <motion.div
@@ -470,7 +472,6 @@ function TrashCollectionPoint({ item, onCollect }) {
                 pointerEvents: "auto",
               }}
             >
-              {/* Efek Jaring jika ada makhluk terjebak */}
               {trapped && (
                 <div
                   style={{
@@ -485,7 +486,7 @@ function TrashCollectionPoint({ item, onCollect }) {
               )}
               
               <div style={{ 
-                width: size, 
+                width: effectiveSize, 
                 opacity: 0.95, 
                 transform: `rotate(${rot}deg)`,
                 filter: trapped ? "sepia(0.3) saturate(1.5)" : "none"
@@ -494,18 +495,17 @@ function TrashCollectionPoint({ item, onCollect }) {
                  type === 'bottle' ? <CartoonPlasticBottle /> : <CartoonSodaCan />}
               </div>
 
-              {/* Label Interaksi */}
               <motion.div
                 animate={{ y: [0, -5, 0] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
                 style={{
                   position: "absolute",
-                  bottom: -15,
+                  bottom: isMobile ? -10 : -15,
                   background: trapped ? "rgba(255,60,60,0.95)" : "rgba(59,130,246,0.95)",
                   color: "white",
-                  padding: "4px 12px",
+                  padding: isMobile ? "2px 8px" : "4px 12px",
                   borderRadius: 20,
-                  fontSize: 11,
+                  fontSize: isMobile ? 9 : 11,
                   fontWeight: 900,
                   whiteSpace: "nowrap",
                   boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
@@ -521,4 +521,3 @@ function TrashCollectionPoint({ item, onCollect }) {
     </Html>
   );
 }
-

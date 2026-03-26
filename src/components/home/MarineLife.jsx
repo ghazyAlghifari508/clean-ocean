@@ -1,6 +1,8 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
-import { GiTurtle, GiJellyfish, GiSharkFin } from "react-icons/gi";
+import seaTurtleImg from "../../assets/sea-turtle.png";
+import reefSharkImg from "../../assets/reef-shark.png";
+import coralReefImg from "../../assets/coral-reef.png";
 
 export default function MarineLife() {
   const creatures = [
@@ -9,28 +11,28 @@ export default function MarineLife() {
       name: "Penyu Belimbing",
       status: "Kritis",
       threat: "Memakan kantong plastik yang dikira ubur-ubur.",
-      icon: <GiTurtle className="w-12 h-12" />
+      image: seaTurtleImg
     },
     {
       id: "shark",
       name: "Hiu Karang",
       status: "Terancam",
       threat: "Tersangkut di jaring nelayan yang ditinggalkan (ghost nets).",
-      icon: <GiSharkFin className="w-12 h-12" />
+      image: reefSharkImg
     },
     {
       id: "jellyfish",
       name: "Terumbu Karang",
       status: "Rentan",
       threat: "Tertutupi oleh endapan mikroplastik dan bahan kimia.",
-      icon: <GiJellyfish className="w-12 h-12" />
+      image: coralReefImg
     }
   ];
 
   return (
     <section className="pt-0 pb-0 text-white relative">
-      {/* Gradient bridge: white/light → dark */}
-      <div className="h-32 md:h-48 bg-gradient-to-b from-wave-light to-ocean-abyss"></div>
+      {/* No gradient bridge, clean solid background */}
+      <div className="h-4 bg-ocean-abyss"></div>
 
       <div className="bg-ocean-abyss py-24 relative">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-ocean-surface/30 to-transparent"></div>
@@ -66,8 +68,12 @@ export default function MarineLife() {
                 transition={{ duration: 0.5, delay: index * 0.15 }}
                 className="bg-white/[0.03] border border-white/10 hover:border-ocean-surface/50 rounded-xl p-8 transition-colors duration-300"
               >
-                <div className="text-ocean-sky mb-8">
-                  {creature.icon}
+                <div className="w-full h-48 rounded-lg overflow-hidden mb-8 border border-white/5 group-hover:border-ocean-surface/30 transition-colors">
+                  <img 
+                    src={creature.image} 
+                    alt={creature.name}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
                 </div>
 
                 <div className="mb-4">
@@ -88,8 +94,8 @@ export default function MarineLife() {
       </div>
       </div>
 
-      {/* Gradient bridge: dark → light/soft */}
-      <div className="h-32 md:h-48 bg-gradient-to-b from-ocean-abyss to-wave-soft"></div>
+      {/* Clean solid background bridge */}
+      <div className="h-4 bg-ocean-abyss"></div>
     </section>
   );
 }

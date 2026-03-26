@@ -2,6 +2,12 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowRight, BookOpen, AlertTriangle, ShieldCheck, Info } from "lucide-react";
 
+// Local assets to prevent broken images
+import microplasticsImg from "../../assets/microplastics.png";
+import bleachedCoralImg from "../../assets/bleached-coral.png";
+import ecoStepsImg from "../../assets/eco-steps.png";
+import fishingVillageImg from "../../assets/fishing-village.png";
+
 const FILTER_TABS = ["Semua", "Fakta", "Dampak", "Solusi", "Kisah"];
 
 const CONTENT_DATA = [
@@ -11,7 +17,7 @@ const CONTENT_DATA = [
     category: "Fakta",
     type: "article",
     desc: "Plastik tidak pernah benar-benar terurai; mereka hanya pecah menjadi partikel mikro tak kasat mata.",
-    image: "https://images.unsplash.com/photo-1616897597151-2ea3954477ca?w=800&q=80",
+    image: microplasticsImg,
     size: "large", // spans 2 cols, 2 rows in bento
     icon: <Info className="w-5 h-5" />,
   },
@@ -29,7 +35,7 @@ const CONTENT_DATA = [
     category: "Dampak",
     type: "article",
     desc: "Pemutihan terumbu karang masif terjadi akibat kenaikan ekstrem suhu laut global.",
-    image: "https://images.unsplash.com/photo-1617142108319-66c7ab469b41?w=600&q=80",
+    image: bleachedCoralImg,
     size: "medium", // spans 1 col, 2 rows
     icon: <AlertTriangle className="w-5 h-5" />,
   },
@@ -39,7 +45,7 @@ const CONTENT_DATA = [
     category: "Solusi",
     type: "article",
     desc: "Mulai dari diri sendiri. Panduan praktis mengurangi jejak sampah plastik harimu.",
-    image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&q=80",
+    image: ecoStepsImg,
     size: "medium",
     icon: <ShieldCheck className="w-5 h-5" />,
   },
@@ -49,7 +55,7 @@ const CONTENT_DATA = [
     category: "Kisah",
     type: "article",
     desc: "Bagaimana masyarakat pesisir berjuang mempertahankan tangkapan di tengah invasi sampah.",
-    image: "https://images.unsplash.com/photo-1520695287272-b7f8af46d367?w=600&q=80",
+    image: fishingVillageImg,
     size: "medium",
     icon: <BookOpen className="w-5 h-5" />,
   },

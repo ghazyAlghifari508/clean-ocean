@@ -1,7 +1,7 @@
-import { useRef, useMemo, Suspense, Component, useState } from "react";
+import { useRef, useMemo, Suspense, Component, useState, useEffect } from "react";
 import { Canvas, useFrame, extend, useLoader } from "@react-three/fiber";
-import { Html, Sparkles, Sky, Environment, MeshDistortMaterial } from "@react-three/drei";
-import { motion, useScroll, useTransform } from "motion/react";
+import { Html, Sparkles, Sky, Environment, MeshDistortMaterial, useProgress } from "@react-three/drei";
+import { motion, useScroll, useTransform, AnimatePresence } from "motion/react";
 import * as THREE from "three";
 import { ArrowDown } from "lucide-react";
 import { Water } from "three/examples/jsm/objects/Water.js";
@@ -243,6 +243,69 @@ function SceneController({ scrollProgress, ambientRef, sunRef }) {
 }
 
 
+// 7. Premium Loader Component
+function SimulationLoader({ progress }) {
+  return (
+    <motion.div
+      initial={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.8, ease: "easeInOut" }}
+      className="fixed inset-0 z-[100] bg-ocean-abyss flex flex-col items-center justify-center"
+    >
+      {/* Solid background with subtle overlay */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_rgba(0,0,0,0.4)_100%)] pointer-events-none"></div>
+
+      <div className="relative flex flex-col items-center">
+        {/* Animated Water Circle */}
+        <div className="relative w-32 h-32 mb-12">
+          <svg className="w-full h-full -rotate-90">
+            <circle cx="64" cy="64" r="60" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="4" />
+            <motion.circle 
+              cx="64" cy="64" r="60" fill="none" 
+              stroke="#0ea5e9" strokeWidth="4" 
+              strokeDasharray="377"
+              animate={{ strokeDashoffset: 377 - (377 * (progress / 100)) }}
+              strokeLinecap="round"
+              transition={{ duration: 0.5 }}
+            />
+          </svg>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span className="text-4xl font-display font-black text-white">
+              {Math.round(progress)}
+              <span className="text-sm font-bold text-ocean-sky ml-1">%</span>
+            </span>
+          </div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center"
+        >
+          <h2 className="text-2xl font-display font-bold text-white mb-2 tracking-widest uppercase">
+            Mempersiapkan Ekspedisi
+          </h2>
+          <motion.p 
+            animate={{ opacity: [0.4, 1, 0.4] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="text-ocean-sky font-medium tracking-wide"
+          >
+            {progress < 30 ? "Menyiapkan oksigen..." : 
+             progress < 60 ? "Mengecek kedalaman..." : 
+             progress < 90 ? "Menyelam ke zona aman..." : "Siap meluncur!"}
+          </motion.p>
+        </motion.div>
+      </div>
+
+      {/* Decorative Lines */}
+      <div className="absolute bottom-10 left-10 text-white/10 text-[10px] font-mono tracking-tighter">
+        LAT: 08.2435 / LONG: 115.2341 <br />
+        DEPTH_INIT: 40.0M / O2_LEVEL: 100%
+      </div>
+    </motion.div>
+  );
+}
+
 // ==========================================
 // 2. KOMPONEN REACT UTAMA
 // ==========================================
@@ -251,6 +314,26 @@ export default function Simulation() {
   const containerRef = useRef(null);
   const ambientRef = useRef();
   const sunRef = useRef();
+  
+  // Loading State
+  const { progress, active } = useProgress();
+  const [showLoader, setShowLoader] = useState(true);
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    if (progress === 100 && !active) {
+      const timer = setTimeout(() => setShowLoader(false), 800);
+      return () => clearTimeout(timer);
+    }
+  }, [progress, active]);
   
   // ==========================================
   // STATE PENGELOLA SAMPAH (Global for Simulation)
@@ -291,6 +374,9 @@ export default function Simulation() {
 
   return (
     <div ref={containerRef} className="relative h-[800vh] w-full bg-luna-midnight">
+      <AnimatePresence>
+        {showLoader && <SimulationLoader progress={progress} />}
+      </AnimatePresence>
       
       {/* 3D CANVAS YANG STICKY DI LAYAR */}
       <div className="sticky top-0 h-screen w-full overflow-hidden z-0 bg-[#00050d]">
@@ -322,10 +408,10 @@ export default function Simulation() {
                 <Sparkles count={1000} scale={200} size={2} speed={0.3} opacity={0.5} color="#00ffff" position={[0, -500, 0]} />
 
                 {/* ======== LOTTIE CREATURES & INTERACTIVE ======== */}
-                <OceanFishGroups />
-                <DeepSeaCreatures />
-                <OceanFloorDecor />
-                <OceanTrash items={trashItems} onCollect={handleCollect} />
+                <OceanFishGroups isMobile={isMobile} />
+                <DeepSeaCreatures isMobile={isMobile} />
+                <OceanFloorDecor isMobile={isMobile} />
+                <OceanTrash items={trashItems} onCollect={handleCollect} isMobile={isMobile} />
             </Suspense>
 
 

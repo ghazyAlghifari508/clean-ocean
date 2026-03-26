@@ -8,7 +8,7 @@ export default function ContactHero() {
       <div className="absolute top-0 right-1/4 w-1/2 h-96 bg-ocean-sky/5 rounded-full blur-[120px] pointer-events-none mix-blend-multiply"></div>
       
       <div className="container mx-auto px-6 lg:px-16 relative z-10">
-        <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
+        <div className="max-w-4xl flex flex-col items-start text-left">
           
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -44,7 +44,7 @@ export default function ContactHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-lg md:text-2xl text-ocean-deep/70 font-sans max-w-2xl leading-relaxed mx-auto font-light"
+            className="text-lg md:text-2xl text-ocean-deep/70 font-sans max-w-2xl leading-relaxed font-light"
           >
             Punya pertanyaan, ide kolaborasi, atau sekadar ingin menyapa?
             Kami sangat menantikan setiap suara yang peduli pada masa depan lautan.
