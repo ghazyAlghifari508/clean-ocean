@@ -69,7 +69,7 @@ export default function SimulationTeaser() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="w-full h-[400px] lg:h-full min-h-[400px] relative rounded-xl overflow-hidden group shadow-[0_20px_40px_rgba(0,0,0,0.4)]"
+                className="w-full h-[400px] lg:h-full min-h-[400px] relative rounded-xl overflow-hidden group"
               >
                 {/* Genuine Unsplash photo of a scuba diver exploring pollution or deep sea */}
                 <img

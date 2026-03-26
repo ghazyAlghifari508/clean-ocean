@@ -15,6 +15,9 @@ import octopusAnim from "../../assets/octopus.json";
 import turtleAnim from "../../assets/Turtle.json";
 import seaweedAnim from "../../assets/Seaweed copy.json";
 import batuNavy from "../../assets/batu-navy.png";
+import seaTurtleAnim from "../../assets/Sea Turtle.json";
+import seaPlantAnim from "../../assets/Sea plant.json";
+import crabAnim from "../../assets/crab.json";
 
 // ==========================================
 // KARTUN SAMPAH LAUT SVG
@@ -111,9 +114,23 @@ export function OceanFishGroups() {
         </div>
       </Html>
 
+      {/* Tambahan ikan kecil berkelompok lainnya */}
+      <Html position={[8, -55, -5]} center className="pointer-events-none" zIndexRange={[0, 0]}>
+        <div style={{ width: 180, opacity: 0.7, animation: "swimLeftRight 35s linear infinite" }}>
+          <Lottie animationData={banyakIkanAnim} loop />
+        </div>
+      </Html>
+
       {/* Lion Fish — transisi ke Mesopelagik (Diperbesar Lebih Lanjut) */}
       <Html position={[6, -120, -3]} center className="pointer-events-none" zIndexRange={[0, 0]}>
         <div style={{ width: 320, opacity: 0.85, animation: "swimRightLeft 28s linear infinite" }}>
+          <Lottie animationData={lionFishAnim} loop />
+        </div>
+      </Html>
+
+      {/* Tambahan Lion Fish */}
+      <Html position={[-10, -140, -4]} center className="pointer-events-none" zIndexRange={[0, 0]}>
+        <div style={{ width: 280, opacity: 0.8, animation: "swimLeftRight 32s linear infinite" }}>
           <Lottie animationData={lionFishAnim} loop />
         </div>
       </Html>
@@ -131,6 +148,27 @@ export function DeepSeaCreatures() {
       <Html position={[-10, -35, -4]} center className="pointer-events-none" zIndexRange={[0, 0]}>
         <div style={{ width: 180, opacity: 0.85, animation: "swimLeftRight 35s linear infinite" }}>
           <Lottie animationData={turtleAnim} loop />
+        </div>
+      </Html>
+
+      {/* Tambahan Kura-kura */}
+      <Html position={[8, -50, -3]} center className="pointer-events-none" zIndexRange={[0, 0]}>
+        <div style={{ width: 160, opacity: 0.75, animation: "swimRightLeft 42s linear infinite" }}>
+          <Lottie animationData={turtleAnim} loop />
+        </div>
+      </Html>
+
+      {/* Sea Turtle Baru — Di dalam laut */}
+      <Html position={[12, -75, -2]} center className="pointer-events-none" zIndexRange={[0, 0]}>
+        <div style={{ width: 220, opacity: 0.9, animation: "swimRightLeft 40s linear infinite" }}>
+          <Lottie animationData={seaTurtleAnim} loop />
+        </div>
+      </Html>
+
+      {/* Tambahan Sea Turtle */}
+      <Html position={[-8, -95, -5]} center className="pointer-events-none" zIndexRange={[0, 0]}>
+        <div style={{ width: 200, opacity: 0.8, animation: "swimLeftRight 45s linear infinite" }}>
+          <Lottie animationData={seaTurtleAnim} loop />
         </div>
       </Html>
 
@@ -162,6 +200,34 @@ export function DeepSeaCreatures() {
         </div>
       </Html>
 
+      {/* Tambahan Ubur-ubur 3 */}
+      <Html position={[-12, -220, -4]} center className="pointer-events-none" zIndexRange={[0, 0]}>
+        <div
+          style={{
+            width: 190,
+            opacity: 0.6,
+            filter: "drop-shadow(0 0 15px rgba(168,85,247,0.6))",
+            animation: "jellyfishFloat 4.5s ease-in-out 0.5s infinite",
+          }}
+        >
+          <Lottie animationData={jellyfishAnim} loop />
+        </div>
+      </Html>
+
+      {/* Tambahan Ubur-ubur 4 */}
+      <Html position={[10, -250, -6]} center className="pointer-events-none" zIndexRange={[0, 0]}>
+        <div
+          style={{
+            width: 170,
+            opacity: 0.5,
+            filter: "drop-shadow(0 0 10px rgba(168,85,247,0.4))",
+            animation: "jellyfishFloat 5.5s ease-in-out 1s infinite",
+          }}
+        >
+          <Lottie animationData={jellyfishAnim} loop />
+        </div>
+      </Html>
+
       {/* Gurita — Batipelagik */}
       <Html position={[0, -280, -3]} center className="pointer-events-none" zIndexRange={[0, 0]}>
         <div
@@ -170,6 +236,20 @@ export function DeepSeaCreatures() {
             opacity: 0.6,
             filter: "drop-shadow(0 0 10px rgba(0,255,255,0.3))",
             animation: "jellyfishFloat 6s ease-in-out infinite",
+          }}
+        >
+          <Lottie animationData={octopusAnim} loop />
+        </div>
+      </Html>
+
+      {/* Tambahan Gurita */}
+      <Html position={[-8, -320, -4]} center className="pointer-events-none" zIndexRange={[0, 0]}>
+        <div
+          style={{
+            width: 200,
+            opacity: 0.5,
+            filter: "drop-shadow(0 0 10px rgba(0,255,255,0.2))",
+            animation: "jellyfishFloat 7s ease-in-out 1s infinite",
           }}
         >
           <Lottie animationData={octopusAnim} loop />
@@ -258,6 +338,34 @@ export function OceanFloorDecor() {
       <Html position={[12, -504.5, 0]} center className="pointer-events-none" zIndexRange={[15, 15]}>
         <div style={{ width: 600, opacity: 1, transform: "scaleX(-1)" }}>
           <img src={batuNavy} alt="Batu Navy" style={{ width: "100%", filter: "drop-shadow(0 25px 45px rgba(0,0,0,0.7))" }} />
+        </div>
+      </Html>
+
+      {/* Kepiting 1 — Berada di dasar laut */}
+      <Html position={[-3, -504.5, 3]} center className="pointer-events-none" zIndexRange={[20, 20]}>
+        <div style={{ width: 140, opacity: 0.95 }}>
+          <Lottie animationData={crabAnim} loop />
+        </div>
+      </Html>
+
+      {/* Kepiting 2 — Berada di dasar laut */}
+      <Html position={[3, -504.5, 2]} center className="pointer-events-none" zIndexRange={[20, 20]}>
+        <div style={{ width: 130, opacity: 0.9, transform: "scaleX(-1)" }}>
+          <Lottie animationData={crabAnim} loop />
+        </div>
+      </Html>
+
+      {/* Tanaman Laut Tambahan 1 — Menghiasi area dasar kiri */}
+      <Html position={[-6, -505, 1]} center className="pointer-events-none" zIndexRange={[12, 12]}>
+        <div style={{ width: 90, opacity: 0.85 }}>
+          <Lottie animationData={seaPlantAnim} loop />
+        </div>
+      </Html>
+
+      {/* Tanaman Laut Tambahan 2 — Menghiasi area dasar kanan */}
+      <Html position={[7.5, -505, 1]} center className="pointer-events-none" zIndexRange={[12, 12]}>
+        <div style={{ width: 100, opacity: 0.9, transform: "scaleX(-1)" }}>
+          <Lottie animationData={seaPlantAnim} loop />
         </div>
       </Html>
     </>

@@ -1,4 +1,3 @@
-import ContentHero from "../components/content/ContentHero";
 import ContentQuotes from "../components/content/ContentQuotes";
 import ContentImpactCards from "../components/content/ContentImpactCards";
 import ContentTimeline from "../components/content/ContentTimeline";
@@ -10,14 +9,12 @@ import ContentCTA from "../components/content/ContentCTA";
 export default function Content() {
   return (
     <main className="w-full bg-white">
-      <ContentHero />
       <ContentQuotes />
       <ContentBentoGrid />
       <ContentTimeline />
       <ContentImpactCards />
       <ContentSolutions />
       <ContentVideo />
-      <ContentCTA />
     </main>
   );
 }

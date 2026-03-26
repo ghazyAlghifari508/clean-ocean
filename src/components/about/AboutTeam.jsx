@@ -4,19 +4,19 @@ import { Linkedin, Twitter, Github } from "lucide-react";
 export default function AboutTeam() {
   const team = [
     {
-      name: "Bima Samudra",
-      role: "Lead Environmentalist & UX Researcher",
+      name: "Andre Aqil Syafiq",
+      role: "Ketua Tim & Lead Developer",
       image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=600",
       quote: "Lautan mendikte iklim kita. Menyelamatkannya berarti menyelamatkan diri sendiri.",
     },
     {
-      name: "Alya Nabila",
+      name: "Ghazy Nabil Alghifari",
       role: "Simulation Developer & UI/UX Designer",
       image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600",
       quote: "Edukasi terbaik adalah yang meresap melalui pengalaman dan empati visual.",
     },
     {
-      name: "Reza Mahendra",
+      name: "Fadli Sugiardi",
       role: "Marine Biologist & Content Curator",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600",
       quote: "Setiap cangkang penyu yang bebas dari plastik adalah penghargaan tertinggi kami.",
@@ -41,7 +41,7 @@ export default function AboutTeam() {
             Tim Pahlawan Laut
           </span>
           <h2 className="text-3xl md:text-5xl font-display font-bold text-ocean-abyss mb-6">
-            Di Balik Layar OceanGuard
+            Di Balik Layar OClean Dive
           </h2>
           <p className="text-ocean-deep/70 max-w-2xl mx-auto font-sans leading-relaxed">
             Perubahan besar digerakkan oleh niat kecil yang bersatu. Temui pemikir dan pendiri

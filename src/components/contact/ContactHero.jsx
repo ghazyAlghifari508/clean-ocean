@@ -31,8 +31,8 @@ export default function ContactHero() {
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-display font-black text-ocean-abyss leading-[1.05] tracking-tighter mb-8"
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-ocean-abyss leading-[0.9] tracking-tighter mb-8"
           >
             Ayo Terhubung! <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-ocean-deep via-ocean-surface to-ocean-sky drop-shadow-sm">

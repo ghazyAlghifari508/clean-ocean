@@ -40,7 +40,7 @@ export default function Navbar() {
     subText: isScrolled ? "text-white/80" : (isLightBody ? "text-ocean-deep/70" : "text-white/80"),
     border: isScrolled ? "border-white/20" : (isLightBody ? "border-ocean-abyss/10" : "border-white/10"),
     bg: isScrolled ? "bg-ocean-abyss/85 backdrop-blur-xl" : (isLightBody ? "bg-white/40 backdrop-blur-md" : "bg-transparent"),
-    logoGlow: isScrolled ? "drop-shadow-[0_0_8px_rgba(135,206,235,0.8)]" : (isLightBody ? "drop-shadow-none" : "drop-shadow-[0_0_8px_rgba(135,206,235,0.8)]")
+    logoGlow: "drop-shadow-none"
   };
 
   return (
@@ -52,8 +52,8 @@ export default function Navbar() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, type: "spring", stiffness: 100, damping: 20 }}
           className={`pointer-events-auto transition-all duration-700 rounded-full border ${isScrolled
-            ? `${navStyle.bg} shadow-[0_8px_32px_rgba(6,59,82,0.6)] ${navStyle.border} py-3 px-6 md:px-8 w-full max-w-5xl`
-            : `${navStyle.bg} ${navStyle.border} py-4 px-6 md:px-10 w-full max-w-7xl`
+              ? `${navStyle.bg} shadow-lg ${navStyle.border} py-3 px-6 md:px-8 w-full max-w-5xl`
+              : `${navStyle.bg} ${navStyle.border} py-4 px-6 md:px-10 w-full max-w-7xl`
             }`}
         >
           <div className="flex items-center justify-between">
@@ -65,8 +65,8 @@ export default function Navbar() {
                   <ShipWheel strokeWidth={1.5} className={`w-6 h-6 text-ocean-sky ${navStyle.logoGlow} transition-transform duration-300 group-hover:scale-110`} />
                 </motion.div>
               </div>
-              <span className={`text-2xl font-bold font-display tracking-wide transition-colors duration-300 ${navStyle.text} ${!isScrolled && !isLightBody ? "drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]" : ""}`}>
-                Ocean<span className="text-ocean-sky">Guard</span>
+              <span className={`text-2xl font-bold font-display tracking-wide transition-colors duration-300 ${navStyle.text}`}>
+                OClean<span className="text-ocean-sky">Dive</span>
               </span>
             </Link>
 
@@ -80,8 +80,8 @@ export default function Navbar() {
                       key={link.path}
                       to={link.path}
                       className={`relative px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${isActive
-                        ? "text-ocean-abyss bg-ocean-sky shadow-[0_0_15px_rgba(135,206,235,0.5)]"
-                        : `${navStyle.subText} hover:${navStyle.text} hover:bg-white/10`
+                          ? "text-ocean-abyss bg-ocean-sky"
+                          : `${navStyle.subText} hover:${navStyle.text} hover:bg-white/10`
                         }`}
                     >
                       {link.name}
@@ -92,7 +92,7 @@ export default function Navbar() {
 
               <Link
                 to="/simulation"
-                className="ml-2 btn-primary text-sm !px-6 !py-2.5 rounded-full !shadow-[0_0_20px_rgba(77,184,219,0.3)] hover:!shadow-[0_0_30px_rgba(77,184,219,0.5)] group relative overflow-hidden transition-all duration-300 hover:-translate-y-0.5"
+                className="ml-2 btn-primary text-sm !px-6 !py-2.5 rounded-full shadow-md group relative overflow-hidden transition-all duration-300 hover:-translate-y-0.5"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-[150%] group-hover:animate-[shine_2s_infinite]" />
                 <span className="relative z-10 flex items-center gap-2">
@@ -167,15 +167,15 @@ export default function Navbar() {
                   >
                     <Link
                       to={link.path}
-                      className={`text-3xl sm:text-4xl font-display font-semibold transition-all duration-300 flex items-center gap-4 ${isActive ? "text-ocean-sky drop-shadow-[0_0_15px_rgba(135,206,235,0.5)] scale-110" : "text-white/70 hover:text-white hover:scale-105"
+                      className={`text-3xl sm:text-4xl font-display font-semibold transition-all duration-300 flex items-center gap-4 ${isActive ? "text-ocean-sky scale-110" : "text-white/70 hover:text-white hover:scale-105"
                         }`}
                     >
                       {isActive && (
-                        <motion.div layoutId="mobileActive" className="w-2.5 h-2.5 rounded-full bg-ocean-sky shadow-[0_0_12px_rgba(135,206,235,1)]" />
+                        <motion.div layoutId="mobileActive" className="w-2.5 h-2.5 rounded-full bg-ocean-sky" />
                       )}
                       {link.name}
                       {isActive && (
-                        <motion.div layoutId="mobileActiveRight" className="w-2.5 h-2.5 rounded-full bg-ocean-sky shadow-[0_0_12px_rgba(135,206,235,1)]" />
+                        <motion.div layoutId="mobileActiveRight" className="w-2.5 h-2.5 rounded-full bg-ocean-sky" />
                       )}
                     </Link>
                   </motion.div>
@@ -189,7 +189,7 @@ export default function Navbar() {
                 transition={{ delay: 0.5, duration: 0.4 }}
                 className="mt-8"
               >
-                <Link to="/simulation" className="btn-primary text-lg px-8 py-4 rounded-full shadow-[0_0_30px_rgba(77,184,219,0.3)] hover:shadow-[0_0_40px_rgba(77,184,219,0.5)] flex items-center gap-3 group transition-all duration-300">
+                <Link to="/simulation" className="btn-primary text-lg px-8 py-4 rounded-full shadow-lg flex items-center gap-3 group transition-all duration-300">
                   <ShipWheel className="w-6 h-6 group-hover:animate-[spin_3s_linear_infinite]" />
                   <span>Start Simulation</span>
                 </Link>

@@ -1,16 +1,17 @@
-# React + Vite
+# OClean Dive: Lautan Bisa Bernapas Kembali
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Institusi
+Telkom University
 
-Currently, two official plugins are available:
+## Anggota Tim
+- Ketua: Andre Aqil Syafiq
+- Anggota 1: Ghazy Nabil Alghifari
+- Anggota 2: Fadli Sugiardi
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Deskripsi Karya
+OClean Dive adalah platform edukasi interaktif berbasis web yang dirancang khusus untuk meningkatkan kesadaran publik mengenai krisis polusi plastik di lautan Indonesia dan global. Melalui simulasi penyelamatan biota laut yang imersif, kami memberikan pengalaman visual yang mendalam kepada pengguna agar mereka dapat merasakan urgensi dari dampak limbah plastik terhadap ekosistem laut yang rapuh.
 
-## React Compiler
+Proyek ini melandaskan pembuatannya pada subtema konservasi lingkungan dan teknologi berkelanjutan. Dengan memanfaatkan teknologi modern seperti React, TailwindCSS, Framer Motion, dan Lottie animations, OClean Dive menghadirkan antarmuka editorial premium yang mengubah data ilmiah menjadi pengalaman empati yang nyata. Tujuan utama karya ini adalah untuk menginspirasi setiap individu agar mulai melakukan perubahan kecil dalam kebiasaan harian mereka demi kelestarian laut bagi generasi mendatang.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Link Website
+https://oclean-dive-seven.vercel.app

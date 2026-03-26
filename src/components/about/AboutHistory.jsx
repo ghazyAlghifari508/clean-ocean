@@ -69,7 +69,7 @@ export default function AboutHistory() {
 
           <motion.div
             style={{ scaleY: scrollYProgress, transformOrigin: 'top' }}
-            className="absolute left-[27px] md:left-1/2 top-0 bottom-0 w-1 bg-ocean-sky md:-translate-x-1/2 rounded-full shadow-[0_0_15px_rgba(135,206,235,0.6)]"
+            className="absolute left-[27px] md:left-1/2 top-0 bottom-0 w-1 bg-ocean-sky md:-translate-x-1/2 rounded-full"
           />
 
           {milestones.map((item, index) => {
@@ -85,7 +85,7 @@ export default function AboutHistory() {
                 className={`relative flex flex-col md:flex-row items-center ${isEven ? 'md:flex-row-reverse' : ''} gap-8 md:gap-16`}
               >
                 {/* Year Marker */}
-                <div className="absolute left-0 md:left-1/2 w-14 h-14 rounded-full bg-ocean-abyss border-4 border-ocean-sky shadow-[0_0_20px_rgba(135,206,235,0.3)] flex items-center justify-center md:-translate-x-1/2 z-20">
+                <div className="absolute left-0 md:left-1/2 w-14 h-14 rounded-full bg-ocean-abyss border-4 border-ocean-sky flex items-center justify-center md:-translate-x-1/2 z-20">
                   <div className="w-4 h-4 rounded-full bg-white animate-pulse"></div>
                 </div>
 

@@ -3,82 +3,74 @@ import { Quote } from "lucide-react";
 
 export default function ContentQuotes() {
   return (
-    <section className="relative w-full h-[60vh] md:h-[70vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
       
-      {/* CSS Parallax Background using fixed attachment */}
+      {/* Background with cinematic overlay */}
       <div 
-        className="absolute inset-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1518091043644-c1d4457be68f?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center bg-fixed origin-center"
+        className="absolute inset-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center bg-fixed origin-center z-0"
       ></div>
       
-      {/* Deep cinematic gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-ocean-abyss via-ocean-abyss/60 to-ocean-abyss mix-blend-multiply opacity-90"></div>
+      {/* Deep cinematic gradient overlay for readable text */}
+      <div className="absolute inset-0 bg-gradient-to-b from-ocean-abyss via-ocean-abyss/40 to-ocean-abyss/80 z-10"></div>
       
-      {/* Floating particles */}
-      <div className="absolute inset-0 pointer-events-none">
-        {[...Array(15)].map((_, i) => (
+      {/* Floating particles (Marine Snow) */}
+      <div className="absolute inset-0 pointer-events-none z-20">
+        {[...Array(20)].map((_, i) => (
           <motion.div
-            key={i}
+            key={`quote-particle-${i}`}
             initial={{ y: "110vh", opacity: 0 }}
             animate={{ 
               y: "-10vh", 
-              opacity: [0, 0.5, 0],
-              x: Math.sin(i) * 50
+              opacity: [0, 0.6, 0.6, 0],
+              x: (i % 2 === 0 ? "20px" : "-20px")
             }}
             transition={{
-              duration: 10 + Math.random() * 15,
+              duration: 10 + Math.random() * 20,
               repeat: Infinity,
               ease: "linear",
-              delay: Math.random() * 5
+              delay: Math.random() * 10
             }}
-            className="absolute rounded-full bg-white blur-[2px]"
+            className="absolute rounded-full bg-ocean-foam/30 blur-[1px]"
             style={{
               left: `${Math.random() * 100}%`,
-              width: `${Math.random() * 4 + 1}px`,
-              height: `${Math.random() * 4 + 1}px`,
+              width: `${Math.random() * 3 + 1}px`,
+              height: `${Math.random() * 3 + 1}px`,
             }}
           />
         ))}
       </div>
 
-      <div className="container mx-auto px-6 relative z-10 flex flex-col items-center justify-center text-center">
+      <div className="container mx-auto px-6 relative z-30 flex flex-col items-center justify-center text-center">
+        {/* Quote Icon with pulse effect */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="w-16 h-16 md:w-20 md:h-20 rounded-full border border-ocean-sky/30 bg-ocean-sky/10 backdrop-blur-md flex items-center justify-center mb-10 text-ocean-sky shadow-[0_0_30px_rgba(135,206,235,0.2)]"
+          initial={{ opacity: 0, scale: 0.5, rotate: -45 }}
+          animate={{ opacity: 1, scale: 1, rotate: 0 }}
+          transition={{ duration: 1, type: "spring", stiffness: 100 }}
+          className="w-20 h-20 md:w-28 md:h-28 rounded-full border border-ocean-sky/40 bg-ocean-sky/10 backdrop-blur-xl flex items-center justify-center mb-12 text-ocean-sky shadow-2xl shadow-ocean-sky/20"
         >
-          <Quote className="w-8 h-8 md:w-10 md:h-10 fill-current opacity-80" />
+          <Quote className="w-10 h-10 md:w-14 md:h-14 fill-current opacity-90" />
         </motion.div>
 
-        <motion.h2 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="text-3xl md:text-4xl lg:text-5xl font-display font-medium text-white max-w-4xl leading-[1.4] md:leading-[1.6] mb-8"
-        >
-          &ldquo;Kita tidak mewarisi lautan dari nenek moyang kita,<br className="hidden md:block" />
-          <span className="text-ocean-sky text-4xl md:text-5xl lg:text-6xl italic block mt-2 drop-shadow-md">kita meminjamnya dari anak cucu kita.</span>&rdquo;
-        </motion.h2>
+        {/* The Quote Headline */}
+        <div className="overflow-hidden mb-12 max-w-5xl">
+          <motion.h1 
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+            className="text-4xl md:text-6xl lg:text-7xl font-display font-medium text-white leading-tight md:leading-tight lg:leading-[1.1]"
+          >
+            "Kita tidak mewarisi lautan dari nenek moyang kita,<br className="hidden md:block" />
+            <span className="text-gradient-bright italic font-light font-serif tracking-widest leading-[1.6]"> kita meminjamnya dari anak cucu kita.</span>"
+          </motion.h1>
+        </div>
         
+        {/* Divider line */}
         <motion.div
           initial={{ opacity: 0, width: 0 }}
-          whileInView={{ opacity: 1, width: "60px" }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="h-px bg-ocean-sky mb-6"
+          animate={{ opacity: 1, width: "100px" }}
+          transition={{ duration: 1, delay: 1.2 }}
+          className="h-px bg-gradient-to-r from-transparent via-ocean-sky to-transparent mb-8"
         ></motion.div>
-
-        <motion.p
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-white/60 font-sans tracking-widest uppercase text-sm font-bold"
-        >
-          Pepatah Penduduk Asli
-        </motion.p>
       </div>
 
     </section>

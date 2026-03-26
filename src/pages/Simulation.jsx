@@ -266,6 +266,11 @@ export default function Simulation() {
     { id: 8, type: 'bottle', pos: [-8, -480, -3], size: 105, rot: -25, isCollected: false, trapped: 'turtle' },
     { id: 9, type: 'can', pos: [10, -420, -2], size: 90, rot: 15, isCollected: false, trapped: null },
     { id: 10, type: 'bag', pos: [-15, -180, -4], size: 110, rot: 5, isCollected: false, trapped: null },
+    { id: 11, type: 'bottle', pos: [-2, -60, -3], size: 105, rot: 25, isCollected: false, trapped: null },
+    { id: 12, type: 'can', pos: [14, -200, -4], size: 95, rot: -40, isCollected: false, trapped: 'fish' },
+    { id: 13, type: 'bag', pos: [-12, -280, -2], size: 125, rot: 50, isCollected: false, trapped: null },
+    { id: 14, type: 'bottle', pos: [8, -380, -5], size: 100, rot: -15, isCollected: false, trapped: 'octopus' },
+    { id: 15, type: 'can', pos: [2, -495, -2], size: 115, rot: 60, isCollected: false, trapped: null },
   ]);
 
   const collectedCount = trashItems.filter(item => item.isCollected).length;
@@ -382,7 +387,7 @@ export default function Simulation() {
             
             <Html position={[0, -500, 0]} center className="pointer-events-none w-screen">
                 <div className="text-center text-white pt-24">
-                    <h1 className="text-5xl md:text-7xl font-display font-bold drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold">
                         Dasar Palung Laut
                     </h1>
                 </div>
@@ -395,7 +400,7 @@ export default function Simulation() {
          style={{ opacity: entryOpacity }}
          className="absolute top-0 left-0 w-full h-screen flex flex-col items-center justify-center z-10 pointer-events-none"
       >
-        <h1 className="text-5xl md:text-7xl font-display font-bold text-gray-900 mb-6 drop-shadow-sm px-4 text-center">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-gray-900 mb-6 px-4 text-center">
             Ekspedisi Laut Dalam
         </h1>
         <p className="max-w-xl text-xl text-gray-800 drop-shadow-sm mx-auto text-center px-4 font-medium">
@@ -410,7 +415,7 @@ export default function Simulation() {
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ type: "spring", stiffness: 200, damping: 25 }}
-          className="bg-[#020617]/80 backdrop-blur-2xl border border-white/5 p-5 pr-10 rounded-lg shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] flex items-center gap-8 pointer-events-auto border-l-4 border-l-blue-500/50"
+          className="bg-[#020617]/80 backdrop-blur-2xl border border-white/5 p-5 pr-10 rounded-lg flex items-center gap-8 pointer-events-auto border-l-4 border-l-blue-500/50"
         >
           {/* Technical Progress Circle (Replaces Emoji) */}
           <div className="relative w-14 h-14 flex items-center justify-center shrink-0">

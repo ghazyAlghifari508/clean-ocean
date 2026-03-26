@@ -4,54 +4,48 @@ import { ArrowDown } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full min-h-screen bg-ocean-abyss overflow-hidden flex flex-col justify-center">
-      {/* Subtle gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-ocean-ink/60 via-ocean-abyss to-ocean-deep/40 pointer-events-none"></div>
+    <section className="relative w-full min-h-screen bg-ocean-abyss overflow-hidden flex flex-col justify-center items-center text-center">
+      {/* Video Background */}
+      <video 
+        autoPlay 
+        muted 
+        loop 
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0"
+      >
+        <source src="https://cdn.pixabay.com/video/2025/02/19/259359_large.mp4" type="video/mp4" />
+      </video>
 
-      {/* Minimal floating particles — only 6, very subtle */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(6)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full bg-white/[0.06] animate-bubble-rise"
-            style={{
-              left: `${15 + i * 14}%`,
-              bottom: "-5%",
-              width: `${3 + i}px`,
-              height: `${3 + i}px`,
-              animationDelay: `${i * 1.2}s`,
-              animationDuration: `${8 + i * 2}s`,
-            }}
-          />
-        ))}
-      </div>
+      {/* Cinematic Overlays */}
+      <div className="absolute inset-0 bg-ocean-abyss/40 z-[1] pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-ocean-ink/40 via-transparent to-ocean-abyss/60 z-[2] pointer-events-none"></div>
 
-      <div className="container mx-auto px-6 lg:px-16 relative z-10 pt-24 pb-40">
-        <div className="max-w-3xl">
+      <div className="container mx-auto px-6 lg:px-16 relative z-10 pt-24 pb-40 flex flex-col items-center">
+        <div className="max-w-4xl">
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="text-ocean-surface font-semibold tracking-widest uppercase text-sm mb-6"
           >
-            OceanGuard — Edukasi Laut
+            OClean Dive — Edukasi Laut
           </motion.p>
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15 }}
-            className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-[1.05] tracking-tight"
+            className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-[1.1] tracking-tight"
           >
             Lautan Kita<br />
-            <span className="text-ocean-surface">Sedang Menangis.</span>
+            <span className="text-ocean-surface underline decoration-white/20 underline-offset-8">Sedang Menangis.</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="text-lg md:text-xl text-white/70 font-sans mb-12 max-w-xl leading-relaxed"
+            className="text-lg md:text-xl text-white/90 font-sans mb-12 max-w-2xl mx-auto leading-relaxed"
           >
             Selami lautan bersama kami — dan temukan apa yang tersembunyi di balik permukaannya.
           </motion.p>
@@ -63,7 +57,7 @@ export default function HeroSection() {
           >
             <Link
               to="/simulation"
-              className="inline-flex items-center gap-3 bg-white text-ocean-abyss px-8 py-4 rounded-xl font-bold text-base transition-all duration-200 hover:bg-ocean-foam hover:shadow-lg active:scale-[0.98]"
+              className="inline-flex items-center gap-3 bg-white text-ocean-abyss px-10 py-5 rounded-2xl font-bold text-lg transition-all duration-300 hover:bg-ocean-sky hover:text-white hover:shadow-[0_0_30px_rgba(56,189,248,0.4)] active:scale-[0.98]"
             >
               Mulai Menyelam
             </Link>
@@ -82,17 +76,18 @@ export default function HeroSection() {
         <ArrowDown className="w-4 h-4 animate-bounce" />
       </motion.div>
 
-      {/* Clean wave transition */}
-      <div className="absolute bottom-[-2px] left-0 w-full overflow-hidden leading-[0]">
+      {/* Organic Wave Transition */}
+      <div className="absolute bottom-[-1px] left-0 w-full overflow-hidden leading-[0] z-[5]">
         <svg
-          className="relative block w-full h-[60px] md:h-[100px]"
+          className="relative block w-full h-[60px] md:h-[120px]"
           xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 120"
+          viewBox="0 0 1440 320"
           preserveAspectRatio="none"
         >
           <path
-            d="M0,0 V46.29 c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V120 H0 Z"
             fill="#FFFFFF"
+            fillOpacity="1"
+            d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
           ></path>
         </svg>
       </div>
