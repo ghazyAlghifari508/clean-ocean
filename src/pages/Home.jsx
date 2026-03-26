@@ -11,7 +11,7 @@ import MarineLife from "../components/home/MarineLife";
 export default function Home() {
   // Update document title
   useEffect(() => {
-    document.title = "Beranda | OceanGuard";
+    document.title = "Beranda | OClean Dive";
   }, []);
 
   return (

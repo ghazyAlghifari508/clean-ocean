@@ -66,7 +66,7 @@ export default function AboutLocalFacts() {
             Realita di Halaman Belakang Kita
           </h2>
           <p className="text-white/70 max-w-2xl mx-auto font-sans text-lg">
-            Mengapa OceanGuard lahir di sini? Karena krisis ini nyata, dekat, dan mengancam 
+            Mengapa OClean Dive lahir di sini? Karena krisis ini nyata, dekat, dan mengancam 
             seluruh keindahan nusantara yang membentang dari Sabang hingga Merauke.
           </p>
         </motion.div>

@@ -66,7 +66,7 @@ export default function Navbar() {
                 </motion.div>
               </div>
               <span className={`text-2xl font-bold font-display tracking-wide transition-colors duration-300 ${navStyle.text}`}>
-                Ocean<span className="text-ocean-sky">Guard</span>
+                OClean<span className="text-ocean-sky">Dive</span>
               </span>
             </Link>
             {/* Desktop Nav */}

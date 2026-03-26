@@ -41,7 +41,7 @@ export default function AboutTeam() {
             Tim Pahlawan Laut
           </span>
           <h2 className="text-3xl md:text-5xl font-display font-bold text-ocean-abyss mb-6">
-            Di Balik Layar OceanGuard
+            Di Balik Layar OClean Dive
           </h2>
           <p className="text-ocean-deep/70 max-w-2xl mx-auto font-sans leading-relaxed">
             Perubahan besar digerakkan oleh niat kecil yang bersatu. Temui pemikir dan pendiri 

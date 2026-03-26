@@ -32,7 +32,7 @@ export default function AboutHistory() {
     {
       year: "Hari Ini",
       title: "Gerakan Global",
-      desc: "OceanGuard bukan lagi sekadar platform, melainkan komunitas pahlawan laut yang bergerak aktif membersihkan pesisir Nusantara dan menyuarakan regulasi."
+      desc: "OClean Dive bukan lagi sekadar platform, melainkan komunitas pahlawan laut yang bergerak aktif membersihkan pesisir Nusantara dan menyuarakan regulasi."
     }
   ];
 
@@ -57,7 +57,7 @@ export default function AboutHistory() {
             Perjalanan Kami
           </span>
           <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-6">
-            Jejak Langkah OceanGuard
+            Jejak Langkah OClean Dive
           </h2>
         </div>
 

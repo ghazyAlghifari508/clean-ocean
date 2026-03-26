@@ -6,7 +6,7 @@ export default function ContactFormSection() {
     {
       icon: <Mail className="w-6 h-6" />,
       label: "Email",
-      value: "hello@oceanguard.org",
+      value: "hello@ocleandive.org",
       desc: "Kirim pesan kapan saja",
     },
     {

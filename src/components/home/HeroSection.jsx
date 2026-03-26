@@ -28,7 +28,7 @@ export default function HeroSection() {
             transition={{ duration: 0.6 }}
             className="text-ocean-surface font-semibold tracking-widest uppercase text-sm mb-6"
           >
-            OceanGuard — Edukasi Laut
+            OClean Dive — Edukasi Laut
           </motion.p>
 
           <motion.h1

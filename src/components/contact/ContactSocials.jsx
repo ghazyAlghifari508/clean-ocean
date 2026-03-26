@@ -3,11 +3,11 @@ import { Instagram, Twitter, Facebook, Youtube, Globe } from "lucide-react";
 
 export default function ContactSocials() {
   const socials = [
-    { name: "Instagram", icon: <Instagram className="w-8 h-8" />, handle: "@oceanguard_id", color: "hover:bg-[#E4405F]" },
-    { name: "Twitter", icon: <Twitter className="w-8 h-8" />, handle: "@ocean_guard", color: "hover:bg-[#1DA1F2]" },
-    { name: "Facebook", icon: <Facebook className="w-8 h-8" />, handle: "OceanGuard Official", color: "hover:bg-[#1877F2]" },
-    { name: "Youtube", icon: <Youtube className="w-8 h-8" />, handle: "OceanGuard Education", color: "hover:bg-[#FF0000]" },
-    { name: "Website", icon: <Globe className="w-8 h-8" />, handle: "www.oceanguard.org", color: "hover:bg-ocean-surface" },
+    { name: "Instagram", icon: <Instagram className="w-8 h-8" />, handle: "@ocleandive_id", color: "hover:bg-[#E4405F]" },
+    { name: "Twitter", icon: <Twitter className="w-8 h-8" />, handle: "@oclean_dive", color: "hover:bg-[#1DA1F2]" },
+    { name: "Facebook", icon: <Facebook className="w-8 h-8" />, handle: "OClean Dive Official", color: "hover:bg-[#1877F2]" },
+    { name: "Youtube", icon: <Youtube className="w-8 h-8" />, handle: "OClean Dive Education", color: "hover:bg-[#FF0000]" },
+    { name: "Website", icon: <Globe className="w-8 h-8" />, handle: "www.ocleandive.org", color: "hover:bg-ocean-surface" },
   ];
 
   return (

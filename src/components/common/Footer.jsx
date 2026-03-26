@@ -15,7 +15,7 @@ export default function Footer() {
                 <Anchor className="w-5 h-5 text-ocean-abyss" />
               </div>
               <span className="text-xl font-bold font-display text-white">
-                Ocean<span className="text-ocean-sky">Guard</span>
+                OClean<span className="text-ocean-sky">Dive</span>
               </span>
             </Link>
             <p className="text-white/50 text-sm leading-relaxed mb-6">
@@ -98,7 +98,7 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <Mail className="w-4 h-4 text-ocean-surface mt-0.5 flex-shrink-0" />
-                <span className="text-white/50 text-sm">info@oceanguard.id</span>
+                <span className="text-white/50 text-sm">info@ocleandive.id</span>
               </li>
               <li className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-ocean-surface mt-0.5 flex-shrink-0" />
@@ -117,7 +117,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-white/30 text-sm">
-            © {currentYear} OceanGuard. Jaga Lautmu, Jaga Masa Depanmu.
+            © {currentYear} OClean Dive. Jaga Lautmu, Jaga Masa Depanmu.
           </p>
           <p className="text-white/30 text-xs">
             Dibuat dengan ❤️ untuk lautan yang lebih bersih

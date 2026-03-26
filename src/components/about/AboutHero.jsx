@@ -33,7 +33,7 @@ export default function AboutHero() {
             className="w-full md:w-1/2 flex flex-col md:items-end text-left md:text-right"
           >
             <p className="text-ocean-deep font-sans text-lg md:text-xl max-w-lg mb-8 leading-relaxed">
-              OceanGuard lahir dari satu keprihatinan: melihat lautan biru kita tercekik 
+              OClean Dive lahir dari satu keprihatinan: melihat lautan biru kita tercekik 
               oleh sampah plastik. Kami mengemas edukasi menjadi pengalaman interaktif 
               agar setiap orang sadar bahwa perubahan sekecil apa pun berdampak besar.
             </p>
