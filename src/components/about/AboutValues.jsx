@@ -32,9 +32,9 @@ export default function AboutValues() {
 
   return (
     <section className="py-24 bg-wave-light/50 relative overflow-hidden">
-      
+
       <div className="container mx-auto px-6 lg:px-16 relative z-10">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -53,7 +53,7 @@ export default function AboutValues() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px] max-w-5xl mx-auto">
           {values.map((v, index) => {
             const isLarge = v.size === "large";
-            
+
             return (
               <motion.div
                 key={index}
@@ -62,26 +62,22 @@ export default function AboutValues() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -5 }}
-                className={`relative rounded-[2rem] p-8 md:p-10 flex flex-col justify-between overflow-hidden group border ${
-                  isLarge ? "md:col-span-2" : "col-span-1"
-                } ${
-                  v.dark 
-                    ? "bg-ocean-abyss text-white border-ocean-deep shadow-xl shadow-ocean-abyss/20" 
+                className={`relative rounded-[2rem] p-8 md:p-10 flex flex-col justify-between overflow-hidden group border ${isLarge ? "md:col-span-2" : "col-span-1"
+                  } ${v.dark
+                    ? "bg-ocean-abyss text-white border-ocean-deep shadow-xl shadow-ocean-abyss/20"
                     : "bg-white text-ocean-abyss border-gray-100 shadow-lg shadow-gray-200/50"
-                }`}
+                  }`}
               >
                 {/* Glowing hover orb effect in the background */}
-                <div className={`absolute -right-20 -top-20 w-64 h-64 rounded-full blur-[80px] opacity-0 group-hover:opacity-40 transition-opacity duration-700 pointer-events-none ${
-                    v.dark ? "bg-ocean-sky" : "bg-ocean-surface"
+                <div className={`absolute -right-20 -top-20 w-64 h-64 rounded-full blur-[80px] opacity-0 group-hover:opacity-40 transition-opacity duration-700 pointer-events-none ${v.dark ? "bg-ocean-sky" : "bg-ocean-surface"
                   }`}
                 />
 
-                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 z-10 ${
-                  v.dark ? "bg-white/10 border border-white/20" : "bg-wave-light border border-gray-50"
-                }`}>
+                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 z-10 ${v.dark ? "bg-white/10 border border-white/20" : "bg-wave-light border border-gray-50"
+                  }`}>
                   {v.icon}
                 </div>
-                
+
                 <div className="relative z-10">
                   <h3 className={`text-2xl font-display font-bold mb-3 ${isLarge ? "md:text-3xl" : ""}`}>
                     {v.title}

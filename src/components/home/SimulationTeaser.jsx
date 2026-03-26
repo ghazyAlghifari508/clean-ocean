@@ -7,7 +7,7 @@ export default function SimulationTeaser() {
     <section className="py-24 bg-wave-soft">
       <div className="container mx-auto px-6 lg:px-16">
         <div className="bg-ocean-abyss rounded-2xl overflow-hidden shadow-2xl relative">
-          
+
           {/* Subtle Deep Sea Gradient */}
           <div className="absolute inset-0 bg-gradient-to-br from-ocean-abyss via-[#0a1e4a] to-ocean-ink opacity-80 z-0"></div>
 
@@ -34,7 +34,7 @@ export default function SimulationTeaser() {
                   Rasakan Sendiri <br />
                   <span className="text-ocean-sky">Kondisi Laut Kita</span>
                 </h2>
-                
+
                 <p className="text-white/70 text-lg mb-10 leading-relaxed font-sans max-w-lg">
                   Lakukan simulasi penyelaman virtual interaktif. Ambil tindakan langsung untuk membersihkan sampah plastik dan selamatkan biota laut yang terjebak di dasar samudra.
                 </p>
@@ -52,8 +52,8 @@ export default function SimulationTeaser() {
                   ))}
                 </ul>
 
-                <Link 
-                  to="/simulation" 
+                <Link
+                  to="/simulation"
                   className="inline-flex items-center gap-3 bg-white text-ocean-abyss px-8 py-4 rounded-xl font-bold text-base transition-all duration-200 hover:bg-ocean-foam hover:shadow-lg active:scale-[0.98]"
                 >
                   <Play className="w-5 h-5 fill-current" />
@@ -72,21 +72,21 @@ export default function SimulationTeaser() {
                 className="w-full h-[400px] lg:h-full min-h-[400px] relative rounded-xl overflow-hidden group"
               >
                 {/* Genuine Unsplash photo of a scuba diver exploring pollution or deep sea */}
-                <img 
-                  src="https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?q=80&w=2070&auto=format&fit=crop" 
-                  alt="Scuba diver navigating deep blue waters" 
+                <img
+                  src="https://images.unsplash.com/photo-1544551763-8dd7ef293557?auto=format&fit=crop&q=80&w=1200"
+                  alt="Scuba diver navigating deep blue waters"
                   className="w-full h-full object-cover origin-center transition-transform duration-1000 group-hover:scale-105"
                 />
-                
+
                 {/* Simulated depth UI overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-ocean-ink/90 via-transparent to-transparent"></div>
-                
+
                 <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
                   <div className="bg-black/40 backdrop-blur-md border border-white/10 p-4 rounded-xl">
                     <p className="text-white/50 text-xs font-mono mb-1">KEDALAMAN</p>
                     <p className="text-white font-mono text-2xl">45.2<span className="text-sm text-ocean-sky ml-1">M</span></p>
                   </div>
-                  
+
                   <div className="flex gap-2">
                     <div className="w-12 h-12 rounded-full bg-ocean-coral/20 border border-ocean-coral/40 flex items-center justify-center text-ocean-coral animate-pulse">
                       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -97,7 +97,7 @@ export default function SimulationTeaser() {
                 </div>
               </motion.div>
             </div>
-            
+
           </div>
         </div>
       </div>

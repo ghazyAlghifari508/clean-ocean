@@ -31,15 +31,15 @@ export default function ContentSolutions() {
 
   return (
     <section className="relative py-24 bg-ocean-abyss overflow-hidden">
-      
+
       {/* Moving background orbs for depth */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div 
+        <motion.div
           animate={{ x: [0, 100, 0], y: [0, -50, 0] }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
           className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-ocean-sky/10 rounded-full blur-[120px]"
         />
-        <motion.div 
+        <motion.div
           animate={{ x: [0, -100, 0], y: [0, 50, 0] }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear", delay: 2 }}
           className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-teal-500/10 rounded-full blur-[120px]"
@@ -47,7 +47,7 @@ export default function ContentSolutions() {
       </div>
 
       <div className="container mx-auto px-6 lg:px-16 relative z-10">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -80,16 +80,16 @@ export default function ContentSolutions() {
             >
               {/* Internal glow using the color prop */}
               <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none`}></div>
-              
+
               <div className="relative z-10">
                 <div className="w-16 h-16 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 group-hover:bg-white/20 transition-all duration-300">
                   {item.icon}
                 </div>
-                
+
                 <h3 className="text-2xl font-display font-bold text-white mb-4">
                   {item.title}
                 </h3>
-                
+
                 <p className="text-white/70 font-sans leading-relaxed">
                   {item.desc}
                 </p>

@@ -69,6 +69,7 @@ export default function Navbar() {
                 OClean<span className="text-ocean-sky">Dive</span>
               </span>
             </Link>
+
             {/* Desktop Nav */}
             <div className="hidden md:flex items-center gap-1 md:gap-3 lg:gap-5">
               <div className={`flex items-center rounded-full p-1.5 border backdrop-blur-sm transition-colors duration-300 ${isScrolled ? "bg-white/5 border-white/10" : (isLightBody ? "bg-ocean-abyss/5 border-ocean-abyss/10" : "bg-white/5 border-white/10")}`}>

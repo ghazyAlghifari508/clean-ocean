@@ -25,9 +25,9 @@ export default function EducationPreview() {
     <section className="py-24 bg-wave-light relative overflow-hidden">
       <div className="container mx-auto px-6 lg:px-16 relative z-10">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
-          
+
           {/* Left Content */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -43,9 +43,9 @@ export default function EducationPreview() {
             <p className="text-ocean-deep/70 text-lg mb-10 leading-relaxed font-sans">
               Sebelum melakukan aksi, pemahaman mendalam tentang ekosistem adalah kuncinya. Akses perpustakaan digital interaktif kami untuk memahami kondisi kritis laut saat ini.
             </p>
-            
-            <Link 
-              to="/content" 
+
+            <Link
+              to="/content"
               className="group inline-flex items-center gap-3 bg-ocean-abyss text-white px-8 py-4 rounded-xl font-bold transition-all duration-200 hover:bg-ocean-deep w-max"
             >
               <BookOpen className="w-5 h-5" />
@@ -67,7 +67,7 @@ export default function EducationPreview() {
               >
                 {/* Minimalist hover accent line */}
                 <div className="absolute top-0 left-0 w-1 h-full bg-ocean-surface transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom"></div>
-                
+
                 <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
                   <div>
                     <span className="inline-block px-3 py-1 bg-wave-soft text-ocean-mid text-xs font-bold uppercase tracking-widest rounded-md mb-4">

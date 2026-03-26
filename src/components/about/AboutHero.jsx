@@ -3,14 +3,17 @@ import { ArrowRight } from "lucide-react";
 
 export default function AboutHero() {
   return (
-    <section className="relative w-full h-[85vh] md:h-screen min-h-[600px] overflow-hidden flex flex-col bg-ocean-sky/10">
-      
-      {/* Top Half: Text Content (Horizontal Split Layout as per aocean.png) */}
-      <div className="flex-1 w-full flex flex-col justify-end pb-12 md:pb-24 pt-32">
-        <div className="container mx-auto px-6 lg:px-16 flex flex-col md:flex-row items-end justify-between gap-10 md:gap-20">
-          
+    <section className="relative w-full h-[90vh] md:min-h-[700px] overflow-hidden flex flex-col bg-ocean-sky/5">
+
+      {/* Decorative top soft glow */}
+      <div className="absolute top-0 right-0 w-1/2 h-96 bg-ocean-sky/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+      {/* Text Content - Positioned to be vertically centered */}
+      <div className="relative z-20 flex-1 w-full flex flex-col justify-center pt-24 md:pt-32 pb-32 md:pb-48">
+        <div className="container mx-auto px-6 lg:px-16 flex flex-col md:flex-row items-center justify-between gap-12 md:gap-20">
+
           {/* Left: Title */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -21,45 +24,46 @@ export default function AboutHero() {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-ocean-deep to-ocean-surface">
                 Lautan Bisa
               </span> <br />
-              Bernapas Kembali
+              bernapas kembali.
             </h1>
           </motion.div>
 
           {/* Right: Description & CTA */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="w-full md:w-1/2 flex flex-col md:items-end text-left md:text-right"
+            className="w-full md:w-1/2 flex flex-col md:items-start text-left"
           >
             <p className="text-ocean-deep font-sans text-lg md:text-xl max-w-lg mb-8 leading-relaxed">
               OClean Dive lahir dari satu keprihatinan: melihat lautan biru kita tercekik 
               oleh sampah plastik. Kami mengemas edukasi menjadi pengalaman interaktif 
+
               agar setiap orang sadar bahwa perubahan sekecil apa pun berdampak besar.
             </p>
-            
-            <button 
+
+            <button
               onClick={() => {
                 document.getElementById('about-vision')?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="group flex items-center justify-center gap-3 bg-ocean-abyss text-white px-8 py-3.5 rounded-full shadow-lg hover:shadow-xl hover:shadow-ocean-abyss/20 hover:-translate-y-1 transition-all duration-300 w-fit"
+              className="group flex items-center justify-center gap-3 bg-ocean-abyss text-white px-8 py-4 rounded-full shadow-lg hover:shadow-xl hover:shadow-ocean-abyss/20 hover:-translate-y-1 transition-all duration-300 w-fit active:scale-95"
             >
               <span className="font-bold tracking-wide">Misi Kami</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
           </motion.div>
 
         </div>
       </div>
 
-      {/* Bottom Half: Layered Ocean Illustration (Parallax & Animated) */}
-      <div className="relative w-full h-[50vh] md:h-[60vh] mt-auto overflow-hidden bg-gradient-to-b from-transparent to-ocean-abyss/10 flex flex-col justify-end">
-        
+      {/* Bottom Layered Ocean Illustration (Absolute to prevent pushing text) */}
+      <div className="absolute bottom-0 left-0 w-full h-[40vh] md:h-[50vh] overflow-hidden pointer-events-none z-10">
+
         {/* Fill the bottom-most pixels explicitly with ocean-abyss to prevent any 1px gap */}
         <div className="absolute bottom-0 left-0 w-full h-[5vh] bg-ocean-abyss z-0"></div>
 
         {/* Layer 1: Back Wave (Light Blue) */}
-        <motion.div 
+        <motion.div
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, delay: 0.4 }}
@@ -73,7 +77,7 @@ export default function AboutHero() {
         {/* Fauna Silhouettes Removed */}
 
         {/* Layer 2: Middle Wave (Deep Blue) */}
-        <motion.div 
+        <motion.div
           initial={{ y: 80, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
@@ -87,7 +91,7 @@ export default function AboutHero() {
         {/* Turtle Silhouette Removed */}
 
         {/* Layer 3: Front Wave (Abyss - matches next section) */}
-        <motion.div 
+        <motion.div
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
@@ -96,13 +100,9 @@ export default function AboutHero() {
           <svg viewBox="0 0 1440 320" preserveAspectRatio="none" className="w-full h-[40%] fill-current mb-[-2px]" xmlns="http://www.w3.org/2000/svg">
             <path d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,224C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
           </svg>
-          
-
-
         </motion.div>
 
         {/* Ambient Bubbles Removed */}
-
       </div>
     </section>
   );

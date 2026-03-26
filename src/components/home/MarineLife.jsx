@@ -28,13 +28,17 @@ export default function MarineLife() {
   ];
 
   return (
-    <section className="py-24 bg-ocean-abyss text-white relative">
+    <section className="pt-0 pb-0 text-white relative">
+      {/* Gradient bridge: white/light → dark */}
+      <div className="h-32 md:h-48 bg-gradient-to-b from-wave-light to-ocean-abyss"></div>
+
+      <div className="bg-ocean-abyss py-24 relative">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-ocean-surface/30 to-transparent"></div>
-      
+
       <div className="container mx-auto px-6 lg:px-16">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -65,14 +69,14 @@ export default function MarineLife() {
                 <div className="text-ocean-sky mb-8">
                   {creature.icon}
                 </div>
-                
+
                 <div className="mb-4">
                   <h3 className="text-2xl font-display font-bold mb-2">{creature.name}</h3>
                   <span className="inline-block px-2 py-1 bg-red-500/10 text-red-400 text-xs font-bold uppercase tracking-widest outline outline-1 outline-red-500/30 rounded">
                     Status: {creature.status}
                   </span>
                 </div>
-                
+
                 <p className="text-white/60 text-sm leading-relaxed">
                   {creature.threat}
                 </p>
@@ -82,6 +86,10 @@ export default function MarineLife() {
 
         </div>
       </div>
+      </div>
+
+      {/* Gradient bridge: dark → light/soft */}
+      <div className="h-32 md:h-48 bg-gradient-to-b from-ocean-abyss to-wave-soft"></div>
     </section>
   );
 }

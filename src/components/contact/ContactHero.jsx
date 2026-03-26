@@ -1,55 +1,59 @@
 import { motion } from "motion/react";
+import { Mail } from "lucide-react";
 
 export default function ContactHero() {
   return (
-    <section className="relative pt-44 pb-20 overflow-hidden bg-white">
+    <section className="relative pt-44 pb-32 overflow-hidden bg-white">
+      {/* Soft background glow */}
+      <div className="absolute top-0 right-1/4 w-1/2 h-96 bg-ocean-sky/5 rounded-full blur-[120px] pointer-events-none mix-blend-multiply"></div>
+      
       <div className="container mx-auto px-6 lg:px-16 relative z-10">
-        <div className="max-w-4xl">
-          <motion.span 
+        <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
+          
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="w-16 h-16 rounded-2xl bg-ocean-sky/10 border border-ocean-sky/20 flex items-center justify-center text-ocean-deep mb-8 shadow-sm"
+          >
+            <Mail className="w-8 h-8" />
+          </motion.div>
+
+          <motion.span
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-block px-4 py-1.5 bg-ocean-sky/10 text-ocean-deep text-xs font-bold uppercase tracking-[0.2em] rounded-full mb-6 border border-ocean-sky/20"
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="inline-block px-4 py-1.5 bg-wave-light text-ocean-deep text-xs font-bold uppercase tracking-[0.2em] rounded-full mb-6 border border-gray-100 shadow-sm"
           >
             Hubungi Kami
           </motion.span>
-          
-          <motion.h1 
+
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
             className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-ocean-abyss leading-[0.9] tracking-tighter mb-8"
           >
             Ayo Terhubung! <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-ocean-deep via-ocean-surface to-ocean-sky">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-ocean-deep via-ocean-surface to-ocean-sky drop-shadow-sm">
               Bersama Kita Bisa
             </span>
           </motion.h1>
 
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl md:text-2xl text-ocean-deep/70 font-sans max-w-2xl leading-relaxed"
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-lg md:text-2xl text-ocean-deep/70 font-sans max-w-2xl leading-relaxed mx-auto font-light"
           >
-            Punya pertanyaan, ide kolaborasi, atau sekadar ingin menyapa? 
-            Kami senang mendengar setiap suara yang peduli pada masa depan lautan.
+            Punya pertanyaan, ide kolaborasi, atau sekadar ingin menyapa?
+            Kami sangat menantikan setiap suara yang peduli pada masa depan lautan.
           </motion.p>
         </div>
       </div>
-      
-      {/* Decorative background element: Large outline text */}
-      <div className="absolute -bottom-10 right-0 pointer-events-none select-none overflow-hidden hidden lg:block">
-        <motion.span 
-          initial={{ opacity: 0, x: 100 }}
-          animate={{ opacity: 0.03, x: 0 }}
-          transition={{ duration: 1.5, delay: 0.5 }}
-          className="text-[250px] font-display font-black text-ocean-abyss leading-none uppercase"
-          style={{ WebkitTextStroke: '2px currentColor', color: 'transparent' }}
-        >
-          CONNECT
-        </motion.span>
-      </div>
+
+      {/* Decorative gradient bridge to next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-wave-soft/40 to-transparent pointer-events-none"></div>
     </section>
   );
 }

@@ -22,7 +22,7 @@ export default function AboutPartners() {
       </div>
 
       <div className="relative flex overflow-hidden group">
-        
+
         {/* Left Fade Mask */}
         <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
 
@@ -37,8 +37,8 @@ export default function AboutPartners() {
           className="flex whitespace-nowrap items-center gap-16 md:gap-32 w-max px-16 group-hover:[animation-play-state:paused]"
         >
           {duplicatedLogos.map((logo, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="flex items-center gap-4 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer"
             >
               <div className="w-12 h-12 rounded-full bg-ocean-surface flex items-center justify-center text-white font-bold font-display text-xl shadow-inner">
