@@ -1,16 +1,35 @@
+import { useEffect, useRef } from "react";
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { ArrowDown } from "lucide-react";
 
 export default function HeroSection() {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    // Force play video on mount for browsers that might block initial autoplay
+    if (videoRef.current) {
+      const playVideo = async () => {
+        try {
+          await videoRef.current.play();
+        } catch (error) {
+          console.log("Video autoplay prevented:", error);
+        }
+      };
+      playVideo();
+    }
+  }, []);
+
   return (
     <section className="relative w-full min-h-screen bg-ocean-abyss overflow-hidden flex flex-col justify-center items-center text-center">
       {/* Video Background */}
       <video 
+        ref={videoRef}
         autoPlay 
         muted 
         loop 
         playsInline
+        preload="auto"
         className="absolute inset-0 w-full h-full object-cover z-0"
       >
         <source src="https://cdn.pixabay.com/video/2025/02/19/259359_large.mp4" type="video/mp4" />
@@ -57,7 +76,7 @@ export default function HeroSection() {
           >
             <Link
               to="/simulation"
-              className="inline-flex items-center gap-3 bg-white text-ocean-abyss px-10 py-5 rounded-2xl font-bold text-lg transition-all duration-300 hover:bg-ocean-sky hover:text-white hover:shadow-[0_0_30px_rgba(56,189,248,0.4)] active:scale-[0.98]"
+              className="inline-flex items-center gap-3 bg-white text-ocean-abyss px-10 py-5 rounded-2xl font-bold text-lg transition-all duration-300 hover:bg-ocean-sky hover:text-white hover:shadow-xl active:scale-[0.98]"
             >
               Mulai Menyelam
             </Link>
@@ -87,7 +106,7 @@ export default function HeroSection() {
           <path
             fill="#FFFFFF"
             fillOpacity="1"
-            d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224.5C672,245.3,768,266.7,864,250.7C960,234.7,1056,181.3,1152,165.3C1248,149.3,1344,170.7,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
           ></path>
         </svg>
       </div>

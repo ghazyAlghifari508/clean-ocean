@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { Play } from "lucide-react";
+import scubaDiverImg from "../../assets/scuba-diver.png";
 
 export default function SimulationTeaser() {
   return (
@@ -71,10 +72,10 @@ export default function SimulationTeaser() {
                 transition={{ duration: 0.8 }}
                 className="w-full h-[400px] lg:h-full min-h-[400px] relative rounded-xl overflow-hidden group"
               >
-                {/* Genuine Unsplash photo of a scuba diver exploring pollution or deep sea */}
+                {/* Genuine locally generated photo of a scuba diver exploring the ocean */}
                 <img
-                  src="https://images.unsplash.com/photo-1544551763-8dd7ef293557?auto=format&fit=crop&q=80&w=1200"
-                  alt="Scuba diver navigating deep blue waters"
+                  src={scubaDiverImg}
+                  alt="Scuba diver exploring deep ocean environment"
                   className="w-full h-full object-cover origin-center transition-transform duration-1000 group-hover:scale-105"
                 />
 
